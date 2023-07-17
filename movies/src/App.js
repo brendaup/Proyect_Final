@@ -21,7 +21,7 @@ const [originalMovies, setOriginalMovies] = useState([]);
 
   return (
     <div className="App">
-      <MovieContext.Provider value={{ dataMovies, setDataMovies, followMovies, setFollowMovies, originalMovies }}>
+      <MovieContext.Provider value={{ dataMovies, setDataMovies, followMovies, setFollowMovies, originalMovies , setOriginalMovies }}>
 
         <Movies />
 
