@@ -102,7 +102,7 @@ function DataMovies() {
           <div className='container_list-rate'> <img  src='https://i.postimg.cc/qRCzZQyV/star.png' alt='star' /> {movie.vote_average}</div>
             <div>{movie.title} </div>
            
-            <div className='container_list_follow'><div id={movie.id} onClick={addFollow}> <div onClick={clickHandlerFollowBtn} id={movie.id} > {movie.favorite ? "Followed -  " : " Follow + "}  </div></div></div>
+            <div className='container_list_follow'><div id={movie.id} onClick={addFollow}> <div onClick={clickHandlerFollowBtn} key={movie.id} id={movie.id} > {movie.favorite ? "Followed -  " : " Follow + "}  </div></div></div>
             <div className='container_list-youtube'><img onClick={getParamYoutube} src='https://i.postimg.cc/B6hMMSTw/youtube.png' id={movie.id} alt="img-youtub"/></div>
           </div>
         ))
