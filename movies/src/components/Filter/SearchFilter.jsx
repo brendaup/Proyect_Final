@@ -11,7 +11,6 @@ const SearchFilter = () => {
   const handleSearch = (event) => {
     setSearchTerm(event.target.value.toLowerCase());
     setFilteredMovies(dataMovies.filter((movie) => movie.title.toLowerCase().includes(searchTerm)));
-    
   };
 
   useEffect(() => {
