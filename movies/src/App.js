@@ -17,7 +17,7 @@ const [originalMovies, setOriginalMovies] = useState([]);
 
   // PRUEBA
 
-
+   
 
   return (
     <div className="App">
