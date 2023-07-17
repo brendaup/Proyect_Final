@@ -20,13 +20,7 @@ const SearchFilter = () => {
     } else {
       setDataMovies(originalMovies);
     }
-    
-
-  
-
   }, [filteredMovies]);
-
-  
 
   return (
     <div>
