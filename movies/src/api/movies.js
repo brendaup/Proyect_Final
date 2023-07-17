@@ -9,7 +9,6 @@ function Movies() {
 
     const { setDataMovies , setOriginalMovies } = useContext(MovieContext);
   
-   
 
     useEffect(() => {
       const fetchData = async () => {
