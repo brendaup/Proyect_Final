@@ -7,9 +7,9 @@ import Filter from "./components/Filter/Filter";
 import DataMovies from "./components/MovieCard/DataMovies";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register";
+import Register from "./Pages/Register/Register"
+import { AuthProvider } from "./context/AuthContext/AuthContext";
 
-import { AuthProvider } from "./context/AuthContext";
 
 function App() {
   const [dataMovies, setDataMovies] = useState([]);

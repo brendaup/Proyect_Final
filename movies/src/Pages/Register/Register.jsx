@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { useEffect } from "react";
-import { useAuth } from "../../context/authContext/AuthContext";
+import { useAuth } from "../../context/AuthContext/AuthContext";
 import { useNavigate, Link } from "react-router-dom";
 import { registerSchema } from "../../schemas/auth";
 import { zodResolver } from "@hookform/resolvers/zod";
