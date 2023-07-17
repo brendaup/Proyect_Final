@@ -1,0 +1,63 @@
+
+
+.container_list {
+ 
+    display: flex;
+    flex-wrap: wrap;
+    padding: 5%;
+    
+   
+}
+
+.container_list img {
+    width: 340px;
+    margin-left: -0.6%;
+    margin-top: -0.4%;
+  
+   
+
+}
+
+.container_list div {
+    padding: 0.5% !important;
+    width: auto !important;
+}
+
+.container_list_box-background {
+    text-align: center;
+}
+.container_list_box-background div{
+    background-color: gray;
+    
+    
+}
+
+.container_list-rate {
+    text-align: left;
+}
+
+
+
+
+.container_list-rate img {
+    width: 30px;
+}
+
+.container_list_follow div  {
+    width: 10px;
+    height: 2%;
+    border-radius: 20px;
+   
+    background-color: salmon;
+    cursor: pointer;
+   
+   position: relative;
+}
+
+
+
+
+.container_list-youtube img {
+    width: 100px;
+    cursor: pointer;
+}

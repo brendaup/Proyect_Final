@@ -1,0 +1,46 @@
+.shop {
+    width: 100px;
+    border: solid red 2px;
+    display: flex;
+}
+
+
+
+.base {
+    height: 100px;
+    width: 100px;
+    border: 1px solid transparent;
+    border-radius: 30%;
+    position: relative;
+    
+}
+
+.indicator {
+    position: relative;
+    display: inline-block;
+    padding: 8px 16px;
+    background-color: #ff5f5f;
+    color: white;
+    font-size: 14px;
+    border-radius: 20px;
+    margin-left: 70%;
+    
+    
+
+}
+
+.noti_count {
+    font-family: 'Courier New', Courier, monospace;
+    color: white;
+    font-weight: 700;
+}
+
+
+.modal {
+    width: 200px;
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 9%;
+    text-align: left;
+ 
+}
