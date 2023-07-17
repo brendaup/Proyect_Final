@@ -20,6 +20,11 @@ const handleMouseEnter = () => {
     setIsModalOpen(false);
   };
 
+
+
+
+  
+
   return (
     <div className='container_movieFollow'>MovieFollow 
 
