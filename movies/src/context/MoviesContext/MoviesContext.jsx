@@ -24,6 +24,9 @@ export const useMovies = () => {
 
 export function MoviesProvider({ children }) {
     const [movies, setMovies] = useState([]);
+    const [dataMovies, setDataMovies] = useState([]);
+    const [originalMovies, setOriginalMovies] = useState([]);
+  const [followMovies, setFollowMovies] = useState([]);
   
     const getMoviesR = async () => {
       try {
@@ -64,11 +67,20 @@ export function MoviesProvider({ children }) {
           getMoviesR,
           deleteMovieR,
           getMovieR,
-          updateMovieR
+          updateMovieR,
+          dataMovies,
+          setDataMovies,
+          originalMovies,
+          setOriginalMovies,
+          followMovies,
+          setFollowMovies
+
         }}
       >
         {children}
       </MovieContext.Provider>
     );
   }
+
+
 

@@ -1,9 +1,9 @@
 
-//import { MovieContext } from "./context/MoviesContext/MoviesContext";
-//import { useState } from "react";
-//import Movies from "./api/movies";
-//import Filter from "./components/Filter/Filter";
-//import DataMovies from "./components/MovieCard/DataMovies";
+import { MovieContext } from "./context/MoviesContext/MoviesContext";
+import { useState } from "react";
+import Movies from "./api/movies";
+import Filter from "./components/Filter/Filter";
+import DataMovies from "./components/MovieCard/DataMovies";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
@@ -17,14 +17,8 @@ import  Profile  from "./Pages/Profile/Profile"
 import  FormMovies  from "./Pages/FormMovies/FormMovies"
 
 function App() {
-  //const [dataMovies, setDataMovies] = useState([]);
-  //const [originalMovies, setOriginalMovies] = useState([]);
 
-  //Follow module
 
-  //const [followMovies, setFollowMovies] = useState([]);
-
-  // PRUEBA
 
   return (
     <AuthProvider>
@@ -40,8 +34,10 @@ function App() {
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
               <Route path="/movies/:id" element={<FormMovies></FormMovies>} />
               <Route path="/profile" element={<Profile></Profile>} />
+              
             </Route>
           </Routes>
+          <Movies />
           <Footer />
         </BrowserRouter>
       </MoviesProvider>
