@@ -1,11 +1,22 @@
-import { useContext, useEffect } from 'react';
+/*import { useContext, useEffect } from 'react';
 
-import { MovieContext } from '../context/MoviesContext/MoviesContext'
+import { MovieContext } from '../context/MoviesContext/MoviesContext'*/
 
-import axios from 'axios'
+import axios from './axios'
 
 
-function Movies() {
+export const getMovies = () => axios.get("/movies");
+
+export const getMovie = (id) => axios.get(`/movies/${id}`);
+
+export const createMovie = (movie) => axios.post("/movies", movie);
+
+export const updateMovie = (id, movie) => axios.put(`/movies/${id}`, movie);
+
+export const deleteMovie = (id) => axios.delete(`/movies/${id}`);
+
+
+/*function Movies() {
 
     const { setDataMovies } = useContext(MovieContext);
    
@@ -27,4 +38,4 @@ function Movies() {
   
 }
 
-export default Movies
+export default Movies*/

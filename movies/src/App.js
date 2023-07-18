@@ -1,51 +1,51 @@
-import logo from "./logo.svg";
-import "./App.css";
-import { MovieContext } from "./context/MoviesContext/MoviesContext";
-import { useState } from "react";
-import Movies from "./api/movies";
-import Filter from "./components/Filter/Filter";
-import DataMovies from "./components/MovieCard/DataMovies";
+
+//import { MovieContext } from "./context/MoviesContext/MoviesContext";
+//import { useState } from "react";
+//import Movies from "./api/movies";
+//import Filter from "./components/Filter/Filter";
+//import DataMovies from "./components/MovieCard/DataMovies";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
-import Register from "./Pages/Register/Register"
+import Register from "./Pages/Register/Register";
 import { AuthProvider } from "./context/AuthContext/AuthContext";
-
+import { MoviesProvider } from "./context/MoviesContext/MoviesContext";
+import  Header  from "./components/Header/Header"
+import  Footer  from "./components/Footer/Footer"
+import  ProtectedRoute  from "./ProtectedRoute";
+import  Home  from "./Pages/Home/Home"
+import  Profile  from "./Pages/Profile/Profile"
+import  FormMovies  from "./Pages/FormMovies/FormMovies"
 
 function App() {
-  const [dataMovies, setDataMovies] = useState([]);
-  const [originalMovies, setOriginalMovies] = useState([]);
+  //const [dataMovies, setDataMovies] = useState([]);
+  //const [originalMovies, setOriginalMovies] = useState([]);
 
   //Follow module
 
-  const [followMovies, setFollowMovies] = useState([]);
+  //const [followMovies, setFollowMovies] = useState([]);
 
   // PRUEBA
 
   return (
-    <div className="App">
-      <AuthProvider>
+    <AuthProvider>
+      <MoviesProvider>
         <BrowserRouter>
+          <Header />
           <Routes>
-            <Route path="/register" element={<Register></Register>} />
+            <Route path="/" element={<Home></Home>} />
             <Route path="/login" element={<Login></Login>} />
-          </Routes>
-        </BrowserRouter>
-      </AuthProvider>
-      <MovieContext.Provider
-        value={{
-          dataMovies,
-          setDataMovies,
-          followMovies,
-          setFollowMovies,
-          originalMovies,
-        }}
-      >
-        <Movies />
+            <Route path="/register" element={<Register></Register>} />
 
-        <Filter />
-        <DataMovies />
-      </MovieContext.Provider>
-    </div>
+            <Route element={<ProtectedRoute />}>
+              <Route path="/add-movie" element={<FormMovies></FormMovies>} />
+              <Route path="/movies/:id" element={<FormMovies></FormMovies>} />
+              <Route path="/profile" element={<Profile></Profile>} />
+            </Route>
+          </Routes>
+          <Footer />
+        </BrowserRouter>
+      </MoviesProvider>
+    </AuthProvider>
   );
 }
 
