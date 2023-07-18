@@ -1,9 +1,19 @@
-import React, { useState, useEffect, useContext } from 'react';
-import 'bootstrap/dist/css/bootstrap.css';
-import DataMovies_style from './DataMovies_style.css'
-import { MovieContext } from '../../context/MoviesContext/MoviesContext';
-import MovieFollow from '../MoviesFollow/MovieFollow';
-import Filters from '../Filter/Filter';
+
+import React from 'react';
+import "bootstrap/dist/css/bootstrap.css";
+import DataMovies_style from "../../components/MovieCard/DataMovies_style.css";
+import MovieFollow from "../MoviesFollow/MovieFollow";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useContext, useEffect, useState } from "react";
+import { MovieContext } from "../../context/MoviesContext/MoviesContext";
+
+
+
+
+
+
+
+
 
 
 function DataMovies() {
@@ -52,21 +62,20 @@ function DataMovies() {
   function clickHandlerFollowBtn(event) {
     const id = event.target.id;
  
-    // Find the movie with the clicked id in dataMovies
+   
     const dataFilter = dataMovies.find((movie) => movie.id == id);
   
     if (dataFilter) {
-      // Modify the favorite property to true
+      
       dataFilter.favorite = true;
       
-      // If you want to update the dataMovies array with the modified movie, you can find its index and update it.
+    
       const index = dataMovies.findIndex((movie) => movie.id === id);
       if (index !== -1) {
         dataMovies[index] = dataFilter;
       }
   
-      // Now you can proceed with any further logic you need with the updated dataMovies array.
-      // For example, if you want to do something with the updated movie list, you can use the updated dataMovies array.
+   
       
     }
   }
@@ -104,19 +113,18 @@ function DataMovies() {
            
             <div className='container_list_follow'><div id={movie.id} onClick={addFollow}> <div onClick={clickHandlerFollowBtn} key={movie.id} id={movie.id} > {movie.favorite ? "Followed -  " : " Follow + "}  </div></div></div>
             <div className='container_list-youtube'><img onClick={getParamYoutube} src='https://i.postimg.cc/B6hMMSTw/youtube.png' id={movie.id} alt="img-youtub"/></div>
-          </div>
-        ))
-      ) : (
-        <button class="btn btn-primary" type="button" disabled>
+          </div>))) : 
+        ""
+      
+      }
+      <div className='container-spinner'>{dataMovies.length < 1 ?   <button className="btn btn-primary" type="button" disabled>
         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
         Loading...
-      </button>
-      )}
-    </div>
+      </button> : ""}</div>
+  </div>
     </>
   );
       }
 
 
 export default DataMovies
-

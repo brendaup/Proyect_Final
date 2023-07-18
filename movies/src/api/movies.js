@@ -1,14 +1,38 @@
+/*import { useContext, useEffect } from 'react';
+
+import { MovieContext } from '../context/MoviesContext/MoviesContext'*/
+
 import { useContext, useEffect } from 'react';
+import axios from './axios'
+import { AuthContext } from '../context/AuthContext/AuthContext';
+import { MovieContext } from '../context/MoviesContext/MoviesContext';
 
-import { MovieContext } from '../context/MoviesContext/MoviesContext'
 
-import axios from 'axios'
+export const getMovies = () => axios.get("/movies");
+
+export const getMovie = (id) => axios.get(`/movies/${id}`);
+
+export const createMovie = (movie) => axios.post("/movies", movie);
+
+export const updateMovie = (id, movie) => axios.put(`/movies/${id}`, movie);
+
+export const deleteMovie = (id) => axios.delete(`/movies/${id}`);
+
+
+
 
 
 function Movies() {
 
-    const { setDataMovies , setOriginalMovies } = useContext(MovieContext);
   
+
+    const { dataMovies,
+      setDataMovies,
+      originalMovies,
+      setOriginalMovies,
+      followMovies,
+      setFollowMovies } = useContext(MovieContext);
+   
 
     useEffect(() => {
       const fetchData = async () => {

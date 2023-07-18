@@ -34,6 +34,8 @@
 
 .container_list-rate {
     text-align: left;
+    display: flex;
+    font-size: 20px;
 }
 
 
@@ -54,10 +56,32 @@
    position: relative;
 }
 
-
+.container_list-youtube {
+    align-items: center;
+    display: flex;
+    justify-content: space-around;
+}
 
 
 .container_list-youtube img {
     width: 100px;
     cursor: pointer;
+    
+}
+
+.container-spinner {
+    margin-left: 40%;
+   
+    
+}
+
+.container-spinner button {
+    width: 500px;
+
+}
+
+
+.btn {
+    background-color: salmon !important;
+    border: none;
 }
