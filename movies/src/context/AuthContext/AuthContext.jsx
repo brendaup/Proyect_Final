@@ -3,6 +3,7 @@ import { loginRequest, registerRequest } from "../../api/auth";
 import { useEffect } from "react";
 
 
+
 export const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -17,6 +18,7 @@ export function AuthProvider({ children }) {
   const [user, setUser] = useState([]);
   const [errors, setErrors] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [loading, setLoading] = useState(true);
 
    // Después de 5 segundos limpiamos los errores
    useEffect(() => {
@@ -32,6 +34,7 @@ export function AuthProvider({ children }) {
     try {
       const res = await registerRequest(user);
       setUser(res.data);
+      setIsAuthenticated(true);
       console.log(user);
     } catch (error) {
       console.log(error.response.data);
@@ -43,6 +46,7 @@ export function AuthProvider({ children }) {
     try {
       const res = await loginRequest();
       setUser(res.data);
+      setIsAuthenticated(true);
     } catch (error) {
       console.log(error.response.data);
       setErrors(error.response.data.message);
@@ -51,7 +55,11 @@ export function AuthProvider({ children }) {
 
   const logout = () => {
     setUser(null);
+    setIsAuthenticated(false);
   };
+
+
+
 
   return (
     <AuthContext.Provider

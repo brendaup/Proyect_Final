@@ -1,26 +1,29 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext/AuthContext";
-import  "./Header.css"
+import "./Header.css";
 
 const Header = () => {
-
   const { isAuthenticated, user, logout } = useAuth();
+
+  console.log(user);
 
   return (
     <header>
       <nav className="div-nav">
-        <Link to="/">
-          <button>Página de inicio</button>
-        </Link>
+
+
+        <button>
+          <Link to="/">Inicio</Link>
+        </button>
+
         <div className="container">
           {isAuthenticated ? (
             <>
-              <div className="div-welcome">Bienvenid@ {user.username}!</div>
+              <div className="div-welcome">Bienvenid@ {user.email}!</div>
 
               <button>
                 <Link
                   to="/add-movie"
-                  className="bg-indigo-500 px-4 py-1 rounded-sm"
                 >
                   Añadir pelicula
                 </Link>
@@ -39,21 +42,11 @@ const Header = () => {
           ) : (
             <>
               <button>
-                <Link
-                  to="/login"
-                
-                >
-                  Login
-                </Link>
+                <Link to="/login">Login</Link>
               </button>
 
               <button>
-                <Link
-                  to="/register"
-                 
-                >
-                  Registrarse
-                </Link>
+                <Link to="/register">Registrarse</Link>
               </button>
             </>
           )}
@@ -61,8 +54,6 @@ const Header = () => {
       </nav>
     </header>
   );
-}
+};
 
-
-
-export default Header
+export default Header;

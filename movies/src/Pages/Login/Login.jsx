@@ -24,7 +24,7 @@ const Login = () => {
   const onSubmit = (formData) => {
     const isMatch = user.filter(
       (user) =>
-        user.email == formData.email && user.password === formData.password
+        user.email === formData.email && user.password === formData.password
     );
     console.log(isMatch);
     if (isMatch.length === 1) {
