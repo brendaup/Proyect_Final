@@ -5,6 +5,7 @@ import { useState } from "react";
 import Movies from "./api/movies";
 import Filter from "./components/Filter/Filter"
 import DataMovies from "./components/MovieCard/DataMovies";
+import Nav from "./components/Nav/Nav";
 
 
 function App() {
@@ -24,8 +25,8 @@ const [originalMovies, setOriginalMovies] = useState([]);
       <MovieContext.Provider value={{ dataMovies, setDataMovies, followMovies, setFollowMovies, originalMovies , setOriginalMovies }}>
 
         <Movies />
-
-        <Filter  />
+        <Nav/>
+{/*         <Filter  /> */}
         <DataMovies />
       </MovieContext.Provider>
     </div>

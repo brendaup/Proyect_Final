@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { MovieContext } from '../../context/MoviesContext/MoviesContext';
 import axios from 'axios';
+import "./GenreFilter.css"
 
 const GenreFilter = () => {
   const { setDataMovies, originalMovies } = useContext(MovieContext);
@@ -34,10 +35,12 @@ const GenreFilter = () => {
   ));
 
   return (
-    <select onChange={handleGenreChange}>
-      <option value="">All genres</option>
-      {renderGenreOptions}
-    </select>
+    <div className="select-button">
+      <select className="select" onChange={handleGenreChange}>
+        <option value="">All genres</option>
+        {renderGenreOptions}
+      </select>
+    </div>
   );
 };
 

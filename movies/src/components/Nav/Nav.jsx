@@ -1,10 +1,12 @@
 import React from 'react'
+import Filter from '../Filter/Filter'
 
 
 const Nav = () => {
   return (
     <div>
-      <p>ESTO ES EL NAV</p>
+      
+      <Filter/>
       
     </div>
   )

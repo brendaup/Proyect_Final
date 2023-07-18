@@ -1,6 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { MovieContext } from '../../context/MoviesContext/MoviesContext';
 import Movies from '../../api/movies';
+import "./SearchFilter.css"
 
 const SearchFilter = () => {
   const { dataMovies, setDataMovies , originalMovies } = useContext(MovieContext);
@@ -22,8 +23,11 @@ const SearchFilter = () => {
   }, [filteredMovies]);
 
   return (
-    <div>
-      <input type="text" placeholder="Search movies..." onChange={handleSearch} />
+    <div className="search-filter">
+      <div className="search-icon">
+        <i className="fa-solid fa-magnifying-glass"></i>
+        <input type="text" placeholder="Search movies..." onChange={handleSearch} />
+      </div>
     </div>
   );
 };

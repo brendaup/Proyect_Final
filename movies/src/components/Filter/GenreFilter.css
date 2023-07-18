@@ -1,0 +1,49 @@
+.select-button {
+  display: inline-block;
+  position: relative;
+  width: 200px;
+  height: 40px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 5px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.select-button select {
+  width: 100%;
+  border: none;
+  outline: none;
+  padding: 8px;
+  font-size: 14px;
+  background: transparent;
+  cursor: pointer;
+  appearance: none;
+}
+
+.select-button::after {
+  content: "\f078";
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40px;
+  height: 50px;
+  background-color: #f3dc9e;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-button:hover::after {
+  background-color: #f3dc9e;
+}
+
+.select-button:focus-within {
+  box-shadow: 0 0 0 3px rgba(244, 207, 139, 0.5);
+}
