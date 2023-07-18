@@ -16,6 +16,7 @@ export const useAuth = () => {
 export function AuthProvider({ children }) {
   const [user, setUser] = useState([]);
   const [errors, setErrors] = useState([]);
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
 
    // Después de 5 segundos limpiamos los errores
    useEffect(() => {
@@ -59,7 +60,8 @@ export function AuthProvider({ children }) {
         signin,
         user,
         errors,
-        logout
+        logout,
+        isAuthenticated,
       }}
     >
       {children}
