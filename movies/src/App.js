@@ -26,7 +26,7 @@ function App() {
         <BrowserRouter>
           <Header />
           <Routes>
-            <Route path="/" element={<Home></Home>} />
+            <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
 
@@ -37,9 +37,10 @@ function App() {
               
             </Route>
           </Routes>
-          <Movies />
+         
           <Footer />
         </BrowserRouter>
+        <Movies />
       </MoviesProvider>
     </AuthProvider>
   );
