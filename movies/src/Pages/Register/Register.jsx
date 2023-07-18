@@ -14,7 +14,7 @@ const Register = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  const { signup, errors: registerErrors, signin, user } = useAuth();
+  const { signup, errors: registerErrors, signin, user, setIsAuthenticated } = useAuth();
 
   const navigate = useNavigate();
 
@@ -32,6 +32,7 @@ const Register = () => {
       );
     } else {
       await signup(formData);
+      setIsAuthenticated(true);
       navigate("/home");
     }
   };
