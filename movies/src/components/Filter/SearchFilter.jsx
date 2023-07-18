@@ -5,7 +5,6 @@ import "./SearchFilter.css"
 
 const SearchFilter = () => {
   const { dataMovies, setDataMovies , originalMovies } = useContext(MovieContext);
- 
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState([]);
 
