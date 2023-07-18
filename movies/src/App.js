@@ -22,9 +22,10 @@ function App() {
 
   return (
     <AuthProvider>
+
       <MoviesProvider>
         <BrowserRouter>
-          <Header />
+        <Header />
           <Routes>
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
