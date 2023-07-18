@@ -15,6 +15,8 @@ import  ProtectedRoute  from "./ProtectedRoute";
 import  Home  from "./Pages/Home/Home"
 import  Profile  from "./Pages/Profile/Profile"
 import  FormMovies  from "./Pages/FormMovies/FormMovies"
+import SearchFilter from "./components/Filter/SearchFilter";
+
 
 function App() {
 
@@ -25,7 +27,9 @@ function App() {
 
       <MoviesProvider>
         <BrowserRouter>
-        <Header />
+         <Header />
+         <Filter />
+         <SearchFilter />
           <Routes>
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
@@ -42,7 +46,9 @@ function App() {
           <Footer />
         </BrowserRouter>
         <Movies />
+        
       </MoviesProvider>
+      
     </AuthProvider>
   );
 }

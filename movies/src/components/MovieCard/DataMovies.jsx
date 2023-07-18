@@ -117,7 +117,7 @@ function DataMovies() {
         ""
       
       }
-      <div className='container-spinner'>{dataMovies.length < 40 ?   <button className="btn btn-primary" type="button" disabled>
+      <div className='container-spinner'>{dataMovies.length < 1 ?   <button className="btn btn-primary" type="button" disabled>
         <span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
         Loading...
       </button> : ""}</div>
