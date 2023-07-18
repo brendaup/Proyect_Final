@@ -13,7 +13,7 @@ const Login = () => {
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
-  const { signin, user, errors: loginErrors } = useAuth();
+  const { signin, user, errors: loginErrors, setIsAuthenticated, setUserName } = useAuth();
 
   useEffect(() => {
     signin();
@@ -27,8 +27,11 @@ const Login = () => {
         user.email === formData.email && user.password === formData.password
     );
     console.log(isMatch);
+    console.log(isMatch.username);
     if (isMatch.length === 1) {
-      navigate("/home");
+      setUserName(isMatch[0].username);
+      setIsAuthenticated(true);
+      navigate("/");
     } else {
       navigate("/login");
       alert("Asegúrate de escribir correctamente tu email y usuario.");

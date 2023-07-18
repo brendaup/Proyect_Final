@@ -3,9 +3,11 @@ import { useAuth } from "../../context/AuthContext/AuthContext";
 import "./Header.css";
 
 const Header = () => {
-  const { isAuthenticated, user, logout } = useAuth();
+  const { isAuthenticated, logout, userName } = useAuth();
 
-  console.log(user);
+  console.log("este es mi nombre", userName);
+
+  
 
   return (
     <header>
@@ -19,7 +21,7 @@ const Header = () => {
         <div className="container">
           {isAuthenticated ? (
             <>
-              <div className="div-welcome">Bienvenid@ {user.email}!</div>
+              <div className="div-welcome">Bienvenid@ {userName}!</div>
 
               <button>
                 <Link
