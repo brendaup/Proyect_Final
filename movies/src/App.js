@@ -29,11 +29,13 @@ function App() {
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
+            
 
             <Route element={<ProtectedRoute />}>
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
               <Route path="/movies/:id" element={<FormMovies></FormMovies>} />
               <Route path="/profile" element={<Profile></Profile>} />
+              
               
             </Route>
           </Routes>

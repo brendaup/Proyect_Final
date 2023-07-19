@@ -7,13 +7,9 @@ const Header = () => {
 
   console.log("este es mi nombre", userName);
 
-  
-
   return (
     <header>
       <nav className="div-nav">
-
-
         <button>
           <Link to="/">Inicio</Link>
         </button>
@@ -24,12 +20,9 @@ const Header = () => {
               <div className="div-welcome">Bienvenid@ {userName}!</div>
 
               <button>
-                <Link
-                  to="/add-movie"
-                >
-                  Añadir pelicula
-                </Link>
+                <Link to="/profile">Mi perfil</Link>
               </button>
+
               <button>
                 <Link
                   to="/"
