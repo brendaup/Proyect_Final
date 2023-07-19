@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import { MovieContext, useMovies } from "../../context/MoviesContext/MoviesContext";
 import { Link } from "react-router-dom";
+import GenreFilter from "../Filter/GenreFilter";
 
 function DataMovies() {
   const { dataMovies, setDataMovies, followMovies, setFollowMovies } =  useContext(MovieContext); 
@@ -78,6 +79,7 @@ console.log(dataMovies)
 
   return (
     <>
+    <GenreFilter />
       {" "}
       <MovieFollow />
       <div className="container_list">

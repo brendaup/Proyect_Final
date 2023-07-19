@@ -17,7 +17,7 @@ import DetailCard from "./components/DetailCard/DetailCard";
 
 
 function App() {
- 
+  
 /*   const { movies } = useContext(MovieContext);  */
 
   return (
@@ -26,7 +26,7 @@ function App() {
       <MoviesProvider>
         <BrowserRouter>
          <Header />
-         <Filter />
+{/*          <Filter /> */}
           <Routes>
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />

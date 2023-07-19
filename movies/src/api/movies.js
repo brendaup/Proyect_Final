@@ -38,7 +38,7 @@ function Movies() {
       const fetchData = async () => {
         try {
           const response = await axios.get('https://64af02ecc85640541d4e06ee.mockapi.io/movies');
-          setDataMovies(response.data);
+          setDataMovies(response.data); 
           setOriginalMovies(response.data)
         
         } catch (error) {

@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext/AuthContext";
 import "./Header.css";
+import Nav from "../Nav/Nav";
 
 const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
@@ -8,58 +9,29 @@ const Header = () => {
   console.log("este es mi nombre", userName);
 
   return (
-/*     <header>
-      <nav className="div-nav">
-        <button>
-          <Link to="/">Inicio</Link>
-        </button>
 
-        <div className="container">
-          {isAuthenticated ? (
-            <>
-              <div className="div-welcome">Bienvenid@ {userName}!</div>
-
-              <button>
-                <Link to="/add-movie">Añadir pelicula</Link>
-              </button>
-              <button>
-                <Link
-                  to="/"
-                  onClick={() => {
-                    logout();
-                  }}
-                >
-                  Logout
-                </Link>
-              </button>
-            </>
-          ) : (
-            <>
-              <button>
-                <Link to="/login">Login</Link>
-              </button>
-
-              <button>
-                <Link to="/register">Registrarse</Link>
-              </button>
-            </>
-          )}
-        </div>
-      </nav>
-    </header> */
     <header>
-      <nav className="div-nav">
-        <Link to="/">
-          <h1 className="logo">Movie App</h1>
-        </Link>
+      <div className="header-container">
+        {/* Bloque del logo */}
+        <div className="container-home">
+          <Link to="/" title="Home">
+            <i className="fa-solid fa-house"></i>
+          </Link>
+        </div>
 
-        <div className="container">
+        {/* Bloque del input */}
+        <div className="input-container">
+          <Nav/>
+        </div>
+
+        {/* Bloque de los iconos */}
+        <div className="container-icons">
           {isAuthenticated ? (
             <>
               <div className="div-welcome">Bienvenid@ {userName}!</div>
 
-              <Link to="/add-movie" className="icon-link">
-                <i className="fas fa-plus"></i> Añadir película
+              <Link to="/add-movie" className="icon-link" title="Add">
+                <i className="fas fa-plus"></i> 
               </Link>
               <button
                 className="icon-link"
@@ -67,23 +39,27 @@ const Header = () => {
                   logout();
                 }}
               >
-                <i className="fas fa-sign-out-alt"></i> Logout
+                <i className="fas fa-sign-out-alt" title="Log out"></i> 
               </button>
             </>
           ) : (
             <>
-              <Link to="/login" className="icon-link">
-                <i className="fas fa-sign-in-alt"></i> Login
+              <Link to="/login" className="icon-link" title="Login">
+                <i className="fas fa-sign-in-alt"></i> 
               </Link>
 
-              <Link to="/register" className="icon-link">
-                <i className="fas fa-user-plus"></i> Registrarse
+              <Link to="/register" className="icon-link" title="Register">
+                <i className="fas fa-user-plus"></i> 
               </Link>
             </>
           )}
         </div>
-      </nav>
+      </div>
+
     </header>
+
+
+   
   );
 };
 

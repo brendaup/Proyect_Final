@@ -3,12 +3,8 @@ import Filter from '../Filter/Filter'
 
 
 const Nav = () => {
-  return (
-    <div>
-      
+  return ( 
       <Filter/>
-      
-    </div>
   )
 }
 

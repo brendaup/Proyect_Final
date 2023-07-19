@@ -1,87 +1,68 @@
-
-
 .container_list {
- 
-    display: flex;
-    flex-wrap: wrap;
-    padding: 5%;
-    
-   
+  display: flex;
+  flex-wrap: wrap;
+  padding: 5%;
 }
 
 .container_list img {
-    width: 340px;
-    margin-left: -0.6%;
-    margin-top: -0.4%;
-  
-   
-
+  width: 340px;
+  margin-left: -0.6%;
+  margin-top: -0.4%;
 }
 
 .container_list div {
-    padding: 0.5% !important;
-    width: auto !important;
+  padding: 0.5% !important;
+  width: auto !important;
 }
 
 .container_list_box-background {
-    text-align: center;
+  text-align: center;
 }
-.container_list_box-background div{
-    background-color: gray;
-    
-    
+.container_list_box-background div {
+  background-color: gray;
 }
 
 .container_list-rate {
-    text-align: left;
-    display: flex;
-    font-size: 20px;
+  text-align: left;
+  display: flex;
+  font-size: 20px;
 }
-
-
-
 
 .container_list-rate img {
-    width: 30px;
+  width: 30px;
 }
 
-.container_list_follow div  {
-    width: 10px;
-    height: 2%;
-    border-radius: 20px;
-   
-    background-color: salmon;
-    cursor: pointer;
-   
-   position: relative;
+.container_list_follow div {
+  width: 10px;
+  height: 2%;
+  border-radius: 20px;
+
+  background-color: salmon;
+  cursor: pointer;
+
+  position: relative;
 }
 
 .container_list-youtube {
-    align-items: center;
-    display: flex;
-    justify-content: space-around;
+  align-items: center;
+  display: flex;
+  justify-content: space-around;
 }
 
-
 .container_list-youtube img {
-    width: 100px;
-    cursor: pointer;
-    
+  width: 100px;
+  cursor: pointer;
 }
 
 .container-spinner {
-    margin-left: 40%;
-   
-    
+  margin-left: 40%;
 }
 
 .container-spinner button {
-    width: 500px;
-
+  width: 500px;
 }
 
-
 .btn {
-    background-color: salmon !important;
-    border: none;
+  background-color: salmon !important;
+  border: none;
 }
