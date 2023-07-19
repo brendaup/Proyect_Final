@@ -24,14 +24,17 @@ const SearchFilter = () => {
   }, [filteredMovies]);
 
   return (
+    <>  
     <div className="search-filter">
     
       <div className="search-icon">
         <i className="fa-solid fa-magnifying-glass"></i>
         <input type="text" placeholder="Search movies..." onChange={handleSearch} />
       </div>
-      <MovieFollow />
+     
     </div>
+    <MovieFollow />
+    </>
   );
 };
 
