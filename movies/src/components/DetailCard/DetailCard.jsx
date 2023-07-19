@@ -2,10 +2,10 @@ import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { MovieContext } from "../../context/MoviesContext/MoviesContext";
 
-const DetailCard = () => {
+const DetailCard = ({movies}) => {
     const { id } = useParams();
-     const { movies } = useContext(MovieContext); 
-     
+/*      const { movies } = useContext(MovieContext);  */
+
     const findMovie = movies.find((movie) => movie.id === parseInt(id));
 
 if(findMovie){

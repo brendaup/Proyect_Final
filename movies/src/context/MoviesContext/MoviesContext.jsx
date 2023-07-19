@@ -63,6 +63,7 @@ export function MoviesProvider({ children }) {
       <MovieContext.Provider
         value={{
           movies,
+          setMovies,
           createMovieR,
           getMoviesR,
           deleteMovieR,

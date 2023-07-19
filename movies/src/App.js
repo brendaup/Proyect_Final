@@ -1,5 +1,6 @@
 
 import { MovieContext } from "./context/MoviesContext/MoviesContext";
+import { MoviesProvider } from "./context/MoviesContext/MoviesContext";
 import { useState, useContext } from "react";
 import Movies from "./api/movies";
 import Filter from "./components/Filter/Filter";
@@ -8,7 +9,6 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import Login from "./Pages/Login/Login";
 import Register from "./Pages/Register/Register";
 import { AuthProvider } from "./context/AuthContext/AuthContext";
-import { MoviesProvider } from "./context/MoviesContext/MoviesContext";
 import  Header  from "./components/Header/Header"
 import  Footer  from "./components/Footer/Footer"
 import  ProtectedRoute  from "./ProtectedRoute";
@@ -19,6 +19,7 @@ import DetailCard from "./components/DetailCard/DetailCard";
 
 function App() {
 
+  const { movies } = useContext(MovieContext);
 
   return (
     <AuthProvider>
@@ -34,7 +35,7 @@ function App() {
 
             <Route element={<ProtectedRoute />}>
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
-              <Route path="/detail/:id" element={<DetailCard/>} />
+              <Route path="/detail/:id" element={<DetailCard movies={movies}/>} />
               <Route path="/profile" element={<Profile></Profile>} />
               
             </Route>
