@@ -2,11 +2,10 @@
 
 import { MovieContext } from '../context/MoviesContext/MoviesContext'*/
 
-import { useContext, useEffect } from 'react';
-import axios from './axios'
-import { AuthContext } from '../context/AuthContext/AuthContext';
-import { MovieContext } from '../context/MoviesContext/MoviesContext';
-
+import { useContext, useEffect } from "react";
+import axios from "./axios";
+import { AuthContext } from "../context/AuthContext/AuthContext";
+import { MovieContext } from "../context/MoviesContext/MoviesContext";
 
 export const getMovies = () => axios.get("/movies");
 
@@ -18,38 +17,32 @@ export const updateMovie = (id, movie) => axios.put(`/movies/${id}`, movie);
 
 export const deleteMovie = (id) => axios.delete(`/movies/${id}`);
 
-
-
-
-
 function Movies() {
+  const {
+    dataMovies,
+    setDataMovies,
+    originalMovies,
+    setOriginalMovies,
+    followMovies,
+    setFollowMovies,
+    setClickComments,
+  } = useContext(MovieContext);
 
-  
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get(
+          "https://64af02ecc85640541d4e06ee.mockapi.io/movies"
+        );
+        setDataMovies(response.data);
+        setOriginalMovies(response.data);
+      } catch (error) {
+        console.log("Error fetching data:", error);
+      }
+    };
 
-    const { dataMovies,
-      setDataMovies,
-      originalMovies,
-      setOriginalMovies,
-      followMovies,
-      setFollowMovies } = useContext(MovieContext);
-   
-
-    useEffect(() => {
-      const fetchData = async () => {
-        try {
-          const response = await axios.get('https://64af02ecc85640541d4e06ee.mockapi.io/movies');
-          setDataMovies(response.data); 
-          setOriginalMovies(response.data)
-        
-        } catch (error) {
-          console.log('Error fetching data:', error);
-        }
-      };
-  
-      fetchData();
-    }, [setDataMovies]);
-
-  
+    fetchData();
+  }, [setDataMovies]);
 }
 
-export default Movies
+export default Movies;

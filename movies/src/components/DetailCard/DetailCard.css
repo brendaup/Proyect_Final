@@ -1,9 +1,9 @@
 /* Estilo general de la tarjeta */
 body {
-    background-color: black;
-    margin: 0;
-    padding: 0;
-  }
+  background-color: black;
+  margin: 0;
+  padding: 0;
+}
 
 .movie-detail-card {
   background-color: #444;
@@ -51,7 +51,6 @@ body {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
-  
 }
 
 /* Estilo para el icono en la información adicional */
@@ -59,4 +58,33 @@ body {
   width: 20px;
   height: 20px;
   margin-right: 5px;
+}
+
+.container_reviews {
+  border: solid 2px salmon;
+  border-radius: 10px;
+  margin-top: 1%;
+}
+
+.container_reviews div {
+  padding: 10px;
+}
+
+.container_reviews-user {
+  border-bottom: 1px solid yellow;
+  display: flex;
+  justify-content: space-between;
+}
+
+.container_reviews-user img {
+  width: 35px;
+}
+
+.container_reviews {
+  display: flexbox;
+  justify-content: space-between !important;
+}
+
+.container-comments_length {
+  cursor: pointer;
 }
