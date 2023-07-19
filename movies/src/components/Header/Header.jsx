@@ -12,7 +12,7 @@ const Header = () => {
 
     <header>
       <div className="header-container">
-        {/* Bloque del logo */}
+        {/* Bloque del logo */} 
         <div className="container-home">
           <Link to="/" title="Home">
             <i className="fa-solid fa-house"></i>

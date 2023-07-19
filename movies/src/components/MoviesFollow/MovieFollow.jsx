@@ -5,12 +5,9 @@ import MovieFollow_style from '../../components/MoviesFollow/MovieFollow_style.c
 
 
 function MovieFollow() {
-  const {followMovies} = useContext(MovieContext) ;
-
-
+const {followMovies} = useContext(MovieContext) ;
 const followMoviesLength = followMovies.length;
 const backgroundImg = followMovies.map((img)=> img.poster_path).pop();
-
 const [isModalOpen, setIsModalOpen] = useState(false);
 
 const handleMouseEnter = () => {

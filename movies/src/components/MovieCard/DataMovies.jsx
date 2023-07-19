@@ -81,7 +81,7 @@ console.log(dataMovies)
     <>
     <GenreFilter />
       {" "}
-      <MovieFollow />
+      
       <div className="container_list">
         {dataMovies
           ? dataMovies.map((movie) => (
