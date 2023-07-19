@@ -1,6 +1,6 @@
 
 import { MovieContext } from "./context/MoviesContext/MoviesContext";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import Movies from "./api/movies";
 import Filter from "./components/Filter/Filter";
 import DataMovies from "./components/MovieCard/DataMovies";
@@ -14,9 +14,11 @@ import  Footer  from "./components/Footer/Footer"
 import  ProtectedRoute  from "./ProtectedRoute";
 import  Profile  from "./Pages/Profile/Profile"
 import  FormMovies  from "./Pages/FormMovies/FormMovies"
+import DetailCard from "./components/DetailCard/DetailCard";
 
 
 function App() {
+
 
   return (
     <AuthProvider>
@@ -32,7 +34,7 @@ function App() {
 
             <Route element={<ProtectedRoute />}>
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
-              <Route path="/movies/:id" element={<FormMovies></FormMovies>} />
+              <Route path="/detail/:id" element={<DetailCard/>} />
               <Route path="/profile" element={<Profile></Profile>} />
               
             </Route>
