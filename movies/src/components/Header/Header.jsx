@@ -11,6 +11,7 @@ const Header = () => {
   return (
 
     <header>
+    
       <div className="header-container">
         {/* Bloque del logo */} 
         <div className="container-home">

@@ -41,11 +41,13 @@ backgroundSize: 'cover',
   <div className='noti_count' role='status'>{followMoviesLength}</div>
   {isModalOpen && (
     <div className="modal indicator">
-      <ul>
-        {followMovies.map((movie) => (
-          <li>{movie.title} ({movie.genre})</li>
-        ))}
-      </ul>
+    <ul>
+  {followMovies.map((movie, index) => (
+    <li key={index}>
+    <p>   {movie.title} ({movie.genre})</p>
+    </li>
+  ))}
+</ul>
     </div>
   )}
   </div>

@@ -80,6 +80,7 @@ console.log(dataMovies)
   return (
     <>
     <GenreFilter />
+
       {" "}
       
       <div className="container_list">
