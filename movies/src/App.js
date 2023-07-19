@@ -1,6 +1,5 @@
 
-import { MovieContext } from "./context/MoviesContext/MoviesContext";
-import { MoviesProvider } from "./context/MoviesContext/MoviesContext";
+import { MovieContext, MoviesProvider } from "./context/MoviesContext/MoviesContext";
 import { useState, useContext } from "react";
 import Movies from "./api/movies";
 import Filter from "./components/Filter/Filter";
@@ -18,8 +17,8 @@ import DetailCard from "./components/DetailCard/DetailCard";
 
 
 function App() {
-
-  const { movies } = useContext(MovieContext);
+ 
+/*   const { movies } = useContext(MovieContext);  */
 
   return (
     <AuthProvider>
@@ -32,10 +31,11 @@ function App() {
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
+            <Route path="/detail/:id" element={<DetailCard  /* movies={movies} */ />} />
 
             <Route element={<ProtectedRoute />}>
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
-              <Route path="/detail/:id" element={<DetailCard movies={movies}/>} />
+              
               <Route path="/profile" element={<Profile></Profile>} />
               
             </Route>
@@ -43,7 +43,7 @@ function App() {
          
           <Footer />
         </BrowserRouter>
-        <Movies />
+{/*         <Movies /> */}
         
       </MoviesProvider>
       

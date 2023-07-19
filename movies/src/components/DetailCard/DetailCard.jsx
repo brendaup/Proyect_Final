@@ -1,10 +1,12 @@
 import { useParams } from "react-router-dom";
 import { useContext } from "react";
 import { MovieContext } from "../../context/MoviesContext/MoviesContext";
+import { useMovies } from "../../context/MoviesContext/MoviesContext";
 
-const DetailCard = ({movies}) => {
+const DetailCard = (/* {movies} */) => {
     const { id } = useParams();
-/*      const { movies } = useContext(MovieContext);  */
+     const { movies } = useContext(MovieContext);   
+
 
     const findMovie = movies.find((movie) => movie.id === parseInt(id));
 
@@ -34,4 +36,4 @@ if(findMovie){
 
 }
 
-export default DetailCard
+export default DetailCard 

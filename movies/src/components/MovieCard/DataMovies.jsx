@@ -4,11 +4,11 @@ import DataMovies_style from "../../components/MovieCard/DataMovies_style.css";
 import MovieFollow from "../MoviesFollow/MovieFollow";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import { useContext, useEffect, useState } from "react";
-import { MovieContext } from "../../context/MoviesContext/MoviesContext";
+import { MovieContext, useMovies } from "../../context/MoviesContext/MoviesContext";
 import { Link } from "react-router-dom";
 
 function DataMovies() {
-  const { dataMovies, setDataMovies, followMovies, setFollowMovies } = useContext(MovieContext);
+  const { dataMovies, setDataMovies, followMovies, setFollowMovies } =  useContext(MovieContext); 
   const [paramYoutube, setParamYoutube] = useState();
   const [youTubeUrl, setYouTubeUrl] = useState(
     "https://www.youtube.com/results?search_query="
