@@ -14,7 +14,7 @@ function DataMovies() {
     "https://www.youtube.com/results?search_query="
   );
 
-
+console.log(dataMovies)
   const [followBtn, setFollow] = useState(false);
  
 

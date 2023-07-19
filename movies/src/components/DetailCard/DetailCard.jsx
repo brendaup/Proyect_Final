@@ -4,24 +4,18 @@ import { MovieContext } from "../../context/MoviesContext/MoviesContext";
 import { useMovies } from "../../context/MoviesContext/MoviesContext";
 
 const DetailCard = (/* {movies} */) => {
-    const { id } = useParams();
-     const { movies } = useContext(MovieContext);   
+    
+  const { id } = useParams();
+  const { movies } = useContext(MovieContext);   
 
 
-    const findMovie = movies.find((movie) => movie.id === parseInt(id));
+  const findMovie = movies.find((movie) => movie.id === parseInt(id));
 
 if(findMovie){
    return (
     <div>
-    {findMovie ? (
-      <div>
         <h1>{findMovie.title}</h1>
-
-      </div>
-    ) : (
-      <p>Película no encontrada</p>
-    )}
-  </div>
+    </div>
   );
 } else {
     return (
