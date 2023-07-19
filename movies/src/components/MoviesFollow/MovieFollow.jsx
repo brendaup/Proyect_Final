@@ -41,16 +41,20 @@ function MovieFollow() {
           </div>
           {isModalOpen && (
             <div className="modal indicator">
-              <ul>
-                {followMovies.map((movie, index) => (
-                  <li key={index}>
-                    <p>
-                      {" "}
-                      {movie.title} ({movie.genre}){" "}
-                    </p>
-                  </li>
-                ))}
-              </ul>
+              <div className="container_modal">
+                <ul>
+                  {followMovies.map((movie, index) => (
+                    <li key={index}>
+                      <p>
+                        <button type="button" class="btn btn-danger">
+                          X
+                        </button>{" "}
+                        {movie.title} ({movie.genre})
+                      </p>
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           )}
         </div>
