@@ -17,7 +17,7 @@ const Header = () => {
         <div className="container">
           {isAuthenticated ? (
             <>
-              <div className="div-welcome">Bienvenid@ {userName}!</div>
+              <div className="div-welcome">Bienvenid@ {userName.username}!</div>
 
               <button>
                 <Link to="/profile">Mi perfil</Link>

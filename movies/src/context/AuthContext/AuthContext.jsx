@@ -1,5 +1,5 @@
 import { createContext, useState, useContext } from "react";
-import { loginRequest, registerRequest } from "../../api/auth";
+import { loginRequest, registerRequest, updateUserR } from "../../api/auth";
 import { useEffect } from "react";
 
 
@@ -59,6 +59,13 @@ export function AuthProvider({ children }) {
     setIsAuthenticated(false);
   };
 
+    
+  const updateUser = async (id, user) => {
+    const res = await updateUserR (id, user);
+    console.log(res);
+
+  }
+
 
 
 
@@ -73,7 +80,8 @@ export function AuthProvider({ children }) {
         setIsAuthenticated,
         isAuthenticated,
         setUserName,
-        userName
+        userName,
+        updateUser
       }}
     >
       {children}
