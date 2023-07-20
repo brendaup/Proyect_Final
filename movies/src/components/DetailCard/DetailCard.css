@@ -88,3 +88,7 @@ body {
 .container-comments_length {
   cursor: pointer;
 }
+
+#btn_add-review {
+  margin-top: 1%;
+}
