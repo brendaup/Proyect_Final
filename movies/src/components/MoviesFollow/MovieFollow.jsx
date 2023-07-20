@@ -34,7 +34,7 @@ function MovieFollow() {
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
-      >
+      > {followMovies.length > 0 ? (
         <div className="indicator">
           <div className="noti_count" role="status">
             {followMoviesLength}
@@ -57,7 +57,7 @@ function MovieFollow() {
               </div>
             </div>
           )}
-        </div>
+        </div>   ) : ''  }
       </div>
     </div>
   );
