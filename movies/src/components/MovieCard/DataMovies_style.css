@@ -1,3 +1,9 @@
+.filter-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px ; 
+}
+
 .container_list {
   display: flex;
   flex-wrap: wrap;
@@ -17,6 +23,7 @@
 
 .container_list_box-background {
   text-align: center;
+  
 }
 .container_list_box-background div {
   background-color: gray;
@@ -64,5 +71,3 @@
   background-color: salmon !important;
   border: none;
 }
-
-

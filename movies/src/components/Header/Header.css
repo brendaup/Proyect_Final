@@ -4,6 +4,13 @@ header {
   padding: 3px;
 }
 
+.logo{
+  width: 50px;
+  height: auto;
+  margin-left: 20px;
+  border-radius: 5px;
+}
+
 .header-container {
   display: flex;
   justify-content: space-between;

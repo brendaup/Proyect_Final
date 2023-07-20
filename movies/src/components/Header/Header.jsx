@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext/AuthContext";
 import "./Header.css";
 import Nav from "../Nav/Nav";
+import logo from "../../images/logo.png";
 
 const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
@@ -18,6 +19,10 @@ const Header = () => {
           <Link to="/" title="Home">
             <i className="fa-solid fa-house"></i>
           </Link>
+        </div>
+
+        <div className="logo">
+          <img src={logo} alt="logo" />
         </div>
 
         {/* Bloque del input */}

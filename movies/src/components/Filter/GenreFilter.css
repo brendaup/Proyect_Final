@@ -31,7 +31,7 @@
   right: 0;
   width: 40px;
   height: 50px;
-  background-color: #f3dc9e;
+  background-color: #f5dd05;
   color: #fff;
   display: flex;
   align-items: center;
@@ -41,7 +41,7 @@
 }
 
 .select-button:hover::after {
-  background-color: #f3dc9e;
+  background-color: #f5de14;
 }
 
 .select-button:focus-within {

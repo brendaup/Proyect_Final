@@ -82,7 +82,10 @@ function DataMovies() {
 
   return (
     <>
-      <GenreFilter />{" "}
+      <div className="filter-container">
+        <GenreFilter />
+      </div>
+      
       <div className="container_list">
         {dataMovies
           ? dataMovies.map((movie) => (
@@ -144,5 +147,4 @@ function DataMovies() {
     </>
   );
 }
-
 export default DataMovies;

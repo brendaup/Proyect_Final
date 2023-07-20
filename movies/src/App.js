@@ -26,7 +26,7 @@ function App() {
       <MoviesProvider>
         <BrowserRouter>
          <Header />
-{/*          <Filter /> */}
+
           <Routes>
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
