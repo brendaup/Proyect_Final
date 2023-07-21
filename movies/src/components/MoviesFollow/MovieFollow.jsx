@@ -1,6 +1,6 @@
 import React from "react";
 import { useContext, useState } from "react";
-import { MovieContext } from "../../context/MoviesContext/MoviesContext";
+import { MovieContext, useMovies } from "../../context/MoviesContext/MoviesContext";
 import MovieFollow_style from "../../components/MoviesFollow/MovieFollow_style.css";
 
 function MovieFollow() {
@@ -9,12 +9,20 @@ function MovieFollow() {
   const backgroundImg = followMovies.map((img) => img.poster_path).pop();
   const [isModalOpen, setIsModalOpen] = useState(false);
 
+  /*contexto para llamar la función que elimina peliculas Follow */
+  const { removeMovieFromFollowed } = useMovies();
+
   const handleMouseEnter = () => {
     setIsModalOpen(true);
   };
 
   const handleMouseLeave = () => {
     setIsModalOpen(false);
+  };
+
+  /*Llamo a la función para eliminar la película */
+  const handleRemoveMovie = (movieId) => {
+    removeMovieFromFollowed(movieId); 
   };
 
   return (
@@ -46,7 +54,7 @@ function MovieFollow() {
                   {followMovies.map((movie, index) => (
                     <li key={index}>
                       <p>
-                        <button type="button" class="btn btn-danger">
+                        <button type="button" class="btn btn-danger" onClick={() => handleRemoveMovie(movie.id)}>
                           X
                         </button>{" "}
                         {movie.title} ({movie.genre})

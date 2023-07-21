@@ -59,6 +59,13 @@ export function MoviesProvider({ children }) {
     console.log(res);
 
   }
+//Función para eliminar película del array de películas seguidas
+  const removeMovieFromFollowed = (movieId) => {
+    setFollowMovies((followMovies) =>
+      followMovies.filter((movie) => movie.id !== movieId)
+    );
+  };
+
 
   return (
     <MovieContext.Provider
@@ -75,7 +82,8 @@ export function MoviesProvider({ children }) {
         setOriginalMovies,
         followMovies,
         setFollowMovies,
-        comments, setComments
+        comments, setComments,
+        removeMovieFromFollowed,
 
       }}
     >
