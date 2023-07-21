@@ -59,7 +59,14 @@ export function AuthProvider({ children }) {
     setIsAuthenticated(false);
   };
 
-
+  useEffect(() => {
+    // Si el usuario está logueado, establecer el nombre de usuario en el estado
+    if (user) {
+      setUserName(user.name);
+    } else {
+      setUserName(""); // Si el usuario no está logueado, establecer el nombre de usuario como una cadena vacía
+    }
+  }, [user]);
 
 
   return (

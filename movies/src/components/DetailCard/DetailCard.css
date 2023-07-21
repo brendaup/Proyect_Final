@@ -10,8 +10,7 @@ body {
   color: white;
   border-radius: 8px;
   padding: 20px;
-  /*     max-width: 400px; */
-  width: 700px;
+  max-width: 700px;
   margin: 0 auto;
 }
 
@@ -32,12 +31,10 @@ body {
 
 /* Estilo para la imagen de la película */
 .movie-poster {
-  /*     max-width: 100%; */
-  width: 300px;
+  max-width: 100%;
   height: auto;
   border-radius: 4px;
   margin-bottom: 20px;
-  margin: 0 auto; /*centra la imagen*/
 }
 
 /* Estilo para la descripción de la película */
@@ -60,6 +57,7 @@ body {
   margin-right: 5px;
 }
 
+/* Estilo para el contenedor de comentarios */
 .container_reviews {
   border: solid 2px salmon;
   border-radius: 10px;
@@ -70,6 +68,7 @@ body {
   padding: 10px;
 }
 
+/* Estilo para el contenedor de información del usuario en comentarios */
 .container_reviews-user {
   border-bottom: 1px solid yellow;
   display: flex;
@@ -80,9 +79,9 @@ body {
   width: 35px;
 }
 
-.container_reviews {
-  display: flexbox;
-  justify-content: space-between !important;
+/* Estilo para los comentarios */
+.container_reviews-comments p {
+  margin: 5px 0;
 }
 
 .container-comments_length {
@@ -92,3 +91,46 @@ body {
 #btn_add-review {
   margin-top: 1%;
 }
+
+/* Estilo para el formulario de revisión */
+.container_review {
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.container_review label {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.container_review input[type="text"],
+.container_review select,
+.container_review textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-bottom: 15px;
+}
+
+.container_review textarea {
+  resize: vertical;
+}
+
+.container_review button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.container_review button:hover {
+  background-color: #0056b3;
+}
+

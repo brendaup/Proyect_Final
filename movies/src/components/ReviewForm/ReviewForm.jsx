@@ -2,11 +2,11 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import ReviewForm_style from "../ReviewForm/ReviewForm_style.css";
 
-const ReviewForm = () => {
+const ReviewForm = ({submitComment, movieId}) => {
     const [name, setName] = useState('');
     const [rating, setRating] = useState('');
     const [comment, setComment] = useState('');
-    const {userName} = useContext(AuthContext);
+     const {userName} = useContext(AuthContext); 
     console.log(userName)
   
     const handleNameChange = (e) => {
@@ -24,22 +24,32 @@ const ReviewForm = () => {
     const handleSubmit = (e) => {
       e.preventDefault();
   
-      // send form to api users, / not done 
-      console.log('testings --> ', { name, rating, comment });
+      // Preparo nuevo objeto del nuevo comentario 
+      const newComment = {
+        name: userName,
+        rating,
+        comment,
+        date: new Date().toLocaleDateString(), 
+      };
   
-      // Reset the form after sub mit
+    //Llamo a la función del componente principal para enviar el comentario
+      submitComment(newComment);
+  
+      //Reseteo formulario después de darle a enviar
       setName('');
       setRating('');
       setComment('');
     };
   
-    return (
 
+    return (
        
         <div className="container_review" >
       <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name"> <p id="test"> Name: (Please LogIn,test zone)</p></label>
+          <label htmlFor="name"> 
+            <p id="test"> Name: {userName ? userName : "(Please LogIn, test zone)"}</p>
+          </label>
           <input
             type="text"
             id="name"

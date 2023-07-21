@@ -4,33 +4,55 @@ import { MovieContext } from "../../context/MoviesContext/MoviesContext";
 import "./DetailCard.css";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import ReviewForm from "../ReviewForm/ReviewForm";
+import axios from 'axios';
 
 const DetailCard = () => {
   const { id } = useParams();
   const { dataMovies } = useContext(MovieContext);
-  const {user , setUser} = useContext(AuthContext);
+  const { user, setUser } = useContext(AuthContext);
   const [findMovie, setFindMovie] = useState(null);
-  const [comments, setComments] = useState();
-  const [clickComments, setClickComments] = useState();
-  const [clickReview, setClickReview] = useState();
+  const [comments, setComments] = useState([]);
+  const [clickComments, setClickComments] = useState(false);
+  const [clickReview, setClickReview] = useState(false);
 
+  const [newComment, setNewComment] = useState(null);
 
+ 
+  //Función manejadora para enviar el nuevo comentario a la API y actualizar la variable de estado 
+ const handleCommentSubmit = (newComment) => {
+    // Se actualiza el estado de los comentarios para mostrar el nuevo comentario
+     setComments((prevComments) => [...prevComments, newComment]); 
+
+    // Se envía el nuevo comentario a la API
+    axios
+      .post(`https://64af02ecc85640541d4e06ee.mockapi.io/movies/${findMovie.id}/comments`, newComment)
+      .then((response) => {
+        console.log("Comment added:", response.data);
+
+      })
+      .catch((error) => {
+        console.error("Error fetching comments:", error);
+      });
+  }; 
+
+//Obentemos los detalles de la pelicula con el id y establecemos el estado findMovie
   useEffect(() => {
     const movie = dataMovies.find((movie) => movie.id === parseInt(id));
     setFindMovie(movie);
   }, [dataMovies, id]);
 
+//Actualizamos el estado de los comentarios cuando el estado findMovie cambia  
   useEffect(() => {
     if (findMovie) {
       setComments(findMovie.comments.map((commentObj) => commentObj.comment));
     } else {
       setComments([]);
     }
-  }, [findMovie]);
-
-  function commentsHandlerClick(clickVariable , setterClick) {
+  }, [findMovie]); 
 
 
+
+  function commentsHandlerClick(clickVariable, setterClick) {
     setterClick(!clickVariable);
   }
 
@@ -51,7 +73,9 @@ const DetailCard = () => {
           </p>
 
           <div
-             onClick={() => commentsHandlerClick(clickComments, setClickComments)}
+            onClick={() =>
+              commentsHandlerClick(clickComments, setClickComments)
+            }
             className="container-comments_length"
           >
             {" "}
@@ -60,34 +84,48 @@ const DetailCard = () => {
           <div>
             {clickComments ? (
               <div className="container_reviews">
-                {" "}
                 <div className="container_reviews-user">
-                  {" "}
                   <div>
-                    {" "}
                     <img
                       src="https://i.postimg.cc/4xrwf73K/hacker.png"
                       alt="userImg"
-                    />{" "}
-                    {findMovie.comments.map((movie) => movie.user)}{" "}
-                  </div>{" "}
-                  <div>
-                    {" "}
-                    Date : {findMovie.comments.map((movie) => movie.date)}{" "}
+                    />
+                     {comments.map((comment, index) => (
+                      <div key={index}>
+                        <p>User: {comment.user}</p>
+                        <p>Rating: {comment.rating}</p>
+                        <p>Comment: {comment.comment}</p>
+                        <p>Date: {comment.date}</p>
+                      </div>
+                    ))} 
                   </div>
-                </div>
-                <div className="container_reviews-comments">
-                  Comment
-                  <div>{comments}</div>
                 </div>
               </div>
             ) : (
               ""
             )}{" "}
           </div>
-          <button id="btn_add-review" type="button" class="btn btn-primary" onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button> 
-          <div> {clickReview ? <div> <ReviewForm /> </div> : ""}  </div></div> 
+          <button
+            id="btn_add-review"
+            type="button"
+            className="btn btn-primary"
+            onClick={() => commentsHandlerClick(clickReview, setClickReview)}
+          >
+            Add review
+          </button>
+          <div>
+            {" "}
+            {clickReview ? (
+              <div>
+                {" "}
+                <ReviewForm submitComment={handleCommentSubmit}  movieId={findMovie.id}  />{" "}
+              </div>
+            ) : (
+              ""
+            )}{" "}
+          </div>
         </div>
+      </div>
     );
   } else {
     return (
