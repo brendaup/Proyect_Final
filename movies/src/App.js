@@ -14,15 +14,15 @@ import  ProtectedRoute  from "./ProtectedRoute";
 import  Profile  from "./Pages/Profile/Profile"
 import  FormMovies  from "./Pages/FormMovies/FormMovies"
 import DetailCard from "./components/DetailCard/DetailCard";
+import ReviewForm from "./components/ReviewForm/ReviewForm";
 
 
 function App() {
   
-/*   const { movies } = useContext(MovieContext);  */
+
 
   return (
     <AuthProvider>
-
       <MoviesProvider>
         <BrowserRouter>
          <Header />
@@ -37,16 +37,17 @@ function App() {
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
               
               <Route path="/profile" element={<Profile></Profile>} />
-              
+             
             </Route>
-          </Routes>
          
+          </Routes>
+          
           <Footer />
         </BrowserRouter>
          <Movies /> 
         
       </MoviesProvider>
-      
+       
     </AuthProvider>
   );
 }

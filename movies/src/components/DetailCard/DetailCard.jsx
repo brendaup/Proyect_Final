@@ -2,13 +2,18 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../../context/MoviesContext/MoviesContext";
 import "./DetailCard.css";
+import { AuthContext } from "../../context/AuthContext/AuthContext";
+import ReviewForm from "../ReviewForm/ReviewForm";
 
 const DetailCard = () => {
   const { id } = useParams();
   const { dataMovies } = useContext(MovieContext);
+  const {user , setUser} = useContext(AuthContext);
   const [findMovie, setFindMovie] = useState(null);
   const [comments, setComments] = useState();
   const [clickComments, setClickComments] = useState();
+  const [clickReview, setClickReview] = useState();
+
 
   useEffect(() => {
     const movie = dataMovies.find((movie) => movie.id === parseInt(id));
@@ -23,13 +28,10 @@ const DetailCard = () => {
     }
   }, [findMovie]);
 
-  function commendsHandlerClick() {
-    if (!clickComments) {
-      setClickComments(true);
-    } else {
-      setClickComments(false);
-      console.log("still false");
-    }
+  function commentsHandlerClick(clickVariable , setterClick) {
+
+
+    setterClick(!clickVariable);
   }
 
   if (findMovie) {
@@ -49,7 +51,7 @@ const DetailCard = () => {
           </p>
 
           <div
-            onClick={commendsHandlerClick}
+             onClick={() => commentsHandlerClick(clickComments, setClickComments)}
             className="container-comments_length"
           >
             {" "}
@@ -83,8 +85,9 @@ const DetailCard = () => {
               ""
             )}{" "}
           </div>
+          <button id="btn_add-review" type="button" class="btn btn-primary" onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button> 
+          <div> {clickReview ? <div> <ReviewForm /> </div> : ""}  </div></div> 
         </div>
-      </div>
     );
   } else {
     return (
