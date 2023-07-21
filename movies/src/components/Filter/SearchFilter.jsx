@@ -6,7 +6,6 @@ import MovieFollow from '../MoviesFollow/MovieFollow';
 
 const SearchFilter = () => {
   const { dataMovies, setDataMovies , originalMovies } = useContext(MovieContext);
- 
   const [filteredMovies, setFilteredMovies] = useState([]);
   const [searchTerm, setSearchTerm] = useState([]);
 

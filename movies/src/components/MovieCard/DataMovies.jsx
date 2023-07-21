@@ -2,7 +2,7 @@ import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
 import DataMovies_style from "../../components/MovieCard/DataMovies_style.css";
 import MovieFollow from "../MoviesFollow/MovieFollow";
-import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { useAuth } from "../../context/AuthContext/AuthContext";
 import { useContext, useEffect, useState } from "react";
 import {
   MovieContext,
@@ -14,6 +14,7 @@ import GenreFilter from "../Filter/GenreFilter";
 function DataMovies() {
   const { dataMovies, setDataMovies, followMovies, setFollowMovies } =
     useContext(MovieContext);
+  const { userName, isAuthenticated, user, setUser, updateUser } = useAuth();
   const [paramYoutube, setParamYoutube] = useState();
   const [youTubeUrl, setYouTubeUrl] = useState(
     "https://www.youtube.com/results?search_query="
@@ -58,10 +59,20 @@ function DataMovies() {
 
     const dataFilter = dataMovies.find((movie) => movie.id == id);
 
-    if (dataFilter) {
-      dataFilter.favorite = true;
+    if (dataFilter && isAuthenticated && userName) {
+      const findUser = user.find((user) => user.id == userName.id);
+      const isMatch = findUser.favorites.find((movie) => movie.id == id)
+      if(!isMatch){
+        findUser.favorites.push(dataFilter);
+        const id = findUser.id;
+        updateUser(id, findUser);
+      }
+   
 
-      const index = dataMovies.findIndex((movie) => movie.id === id);
+      dataFilter.Favorite = true;
+
+      const index = dataMovies.findIndex((movie) => movie.id == id);
+
       if (index !== -1) {
         dataMovies[index] = dataFilter;
       }

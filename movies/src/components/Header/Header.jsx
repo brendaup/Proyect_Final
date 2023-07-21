@@ -34,9 +34,9 @@ const Header = () => {
         <div className="container-icons">
           {isAuthenticated ? (
             <>
-              <div className="div-welcome">Bienvenid@ {userName}!</div>
+              <div className="div-welcome">Bienvenid@ {userName.username}!</div>
 
-              <Link to="/add-movie" className="icon-link" title="Add">
+              <Link to="/profile" className="icon-link" title="Add">
                 <i className="fas fa-plus"></i> 
               </Link>
               <button

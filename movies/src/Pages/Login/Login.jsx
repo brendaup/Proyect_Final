@@ -29,7 +29,7 @@ const Login = () => {
     console.log(isMatch);
     console.log(isMatch.username);
     if (isMatch.length === 1) {
-      setUserName(isMatch[0].username);
+      setUserName(isMatch[0]);
       setIsAuthenticated(true);
       navigate("/");
     } else {
