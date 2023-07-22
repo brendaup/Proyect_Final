@@ -21,8 +21,8 @@ function DataMovies() {
     "https://www.youtube.com/results?search_query="
   );
   const [showMore, setShowMore] = useState(10);
+  const [showLoading, setShowLoading] = useState(true);
 
-  console.log(dataMovies);
   const [followBtn, setFollow] = useState(false);
 
   const updatedDataMovies = dataMovies.map((movie) => {
@@ -87,7 +87,7 @@ function DataMovies() {
     if (
       newYouTubeUrl === "https://www.youtube.com/results?search_query=undefined"
     ) {
-      console.log("error getting link for youtube :)");
+      console.log("");
     } else {
       window.open(newYouTubeUrl, "_blank");
     }
@@ -106,9 +106,17 @@ function showListLimit() {
     setDataMovies(response.data); 
   })
 
-  
+
  
  }
+
+
+ setTimeout(() => {
+  setShowLoading(false);
+
+}, 2000);
+
+
 
   return (
     <>
@@ -161,7 +169,8 @@ function showListLimit() {
             ))
           : ""}
         <div className="container-spinner">
-          {dataMovies.length < 1 ? (
+          
+          {showLoading ? (
             <button className="btn btn-primary" type="button" disabled>
               <span
                 class="spinner-grow spinner-grow-sm"
@@ -170,18 +179,20 @@ function showListLimit() {
               ></span>
               Loading...
             </button>
-          ) : (
+            
+          ): (
             ""
           )}
         </div>
        
       </div>
-      <div className="container-show-limit-btn"> 
+      {showLoading ? '' :  <div className="container-show-limit-btn"> 
         <div></div>
-       
+        
         <button id="btn_show-limit" type="button" class="btn btn-primary btn-lg btn-block" onClick={showListLimit}>SHOW MORE MOVIES</button>
             <div></div>
-        </div>
+        </div>}
+      
     </>
   );
 }
