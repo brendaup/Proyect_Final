@@ -1,3 +1,5 @@
+
+
 .filter-container {
   display: flex;
   justify-content: center;
@@ -7,13 +9,18 @@
 .container_list {
   display: flex;
   flex-wrap: wrap;
-  padding: 5%;
+  margin-left: 5%;
+  margin-right: auto;
+  margin-top: 3%;
+  margin-bottom: auto;
+  box-sizing: border-box;
+  
 }
 
 .container_list img {
   width: 340px;
-  margin-left: -0.6%;
-  margin-top: -0.4%;
+
+
 }
 
 .container_list div {
@@ -26,7 +33,11 @@
   
 }
 .container_list_box-background div {
-  background-color: gray;
+  background-color: #FFD1D1 
+}
+
+body {
+  background-color: #FFF5E4 !important;
 }
 
 .container_list-rate {
@@ -43,7 +54,7 @@
   width: 10px;
   height: 2%;
   border-radius: 20px;
-  background-color: salmon;
+  background-color: #FF9494;
   cursor: pointer;
   position: relative;
 }
@@ -65,9 +76,10 @@
 
 .container-spinner button {
   width: 500px;
+  background-color: #FF9494;
 }
 
 .btn {
-  background-color: salmon !important;
+  background-color: #FF9494 !important;
   border: none;
 }
