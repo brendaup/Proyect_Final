@@ -116,7 +116,7 @@ function DataMovies() {
                 </div>
                 <div>{movie.title} </div>
 
-                <div className="container_list_follow">
+                {userName ? <div className="container_list_follow">
                   <div id={movie.id} onClick={addFollow}>
                     {" "}
                     <div
@@ -128,7 +128,7 @@ function DataMovies() {
                       {movie.favorite ? "Followed -  " : " Follow + "}{" "}
                     </div>
                   </div>
-                </div>
+                </div> : ""}
                 <div className="container_list-youtube">
                   <img
                     onClick={getParamYoutube}
