@@ -33,11 +33,11 @@
   
 }
 .container_list_box-background div {
-  background-color: #FFD1D1 
+  background-color:  #AEBDCA;
 }
 
 body {
-  background-color: #FFF5E4 !important;
+  background-color:#7895B2 !important;
 }
 
 .container_list-rate {
@@ -54,7 +54,8 @@ body {
   width: 10px;
   height: 2%;
   border-radius: 20px;
-  background-color: #FF9494;
+  background-color: #F5EFE6;
+  color:black;
   cursor: pointer;
   position: relative;
 }
@@ -80,6 +81,7 @@ body {
 }
 
 .btn {
-  background-color: #FF9494 !important;
+  background-color: #F5EFE6 !important;
   border: none;
+  color:black;
 }

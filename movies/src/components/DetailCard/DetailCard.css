@@ -1,6 +1,6 @@
 /* Estilo general de la tarjeta */
 body {
-  background-color: black;
+  background-color: #222831 ;
   margin: 0;
   padding: 0;
 }
@@ -17,7 +17,7 @@ body {
 
 /* Estilo para el contenedor del título, imagen y sinopsis */
 .movie-content {
-  background-color: black;
+  background-color: #7895B2;
   padding: 20px;
   margin-bottom: 20px;
 }
