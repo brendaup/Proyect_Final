@@ -85,3 +85,17 @@ body {
   border: none;
   color:black;
 }
+
+
+#btn_show-limit {
+  background-color: F5EFE6 !important;
+ width: 50%;  
+  height: auto;
+  margin-bottom: 2%;
+}
+
+
+.container-show-limit-btn {
+  display: flex !important;
+  justify-content: space-between;
+}

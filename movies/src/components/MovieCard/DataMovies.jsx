@@ -10,6 +10,7 @@ import {
 } from "../../context/MoviesContext/MoviesContext";
 import { Link } from "react-router-dom";
 import GenreFilter from "../Filter/GenreFilter";
+import axios from "axios";
 
 function DataMovies() {
   const { dataMovies, setDataMovies, followMovies, setFollowMovies } =
@@ -19,6 +20,7 @@ function DataMovies() {
   const [youTubeUrl, setYouTubeUrl] = useState(
     "https://www.youtube.com/results?search_query="
   );
+  const [showMore, setShowMore] = useState(10);
 
   console.log(dataMovies);
   const [followBtn, setFollow] = useState(false);
@@ -91,8 +93,26 @@ function DataMovies() {
     }
   }, [paramYoutube]);
 
+// limit to 10 items per page
+
+dataMovies.length = showMore;
+function showListLimit() {
+  const newShowMore = showMore + 10;
+  setShowMore(newShowMore);
+  dataMovies.length = newShowMore;
+  axios.get('https://64af02ecc85640541d4e06ee.mockapi.io/movies')
+  .then(response => {
+
+    setDataMovies(response.data); 
+  })
+
+  
+ 
+ }
+
   return (
     <>
+    
       <div className="filter-container">
         <GenreFilter />
       </div>
@@ -154,7 +174,14 @@ function DataMovies() {
             ""
           )}
         </div>
+       
       </div>
+      <div className="container-show-limit-btn"> 
+        <div></div>
+       
+        <button id="btn_show-limit" type="button" class="btn btn-primary btn-lg btn-block" onClick={showListLimit}>SHOW MORE MOVIES</button>
+            <div></div>
+        </div>
     </>
   );
 }
