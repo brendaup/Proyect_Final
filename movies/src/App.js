@@ -15,6 +15,7 @@ import  Profile  from "./Pages/Profile/Profile"
 import  FormMovies  from "./Pages/FormMovies/FormMovies"
 import DetailCard from "./components/DetailCard/DetailCard";
 import ReviewForm from "./components/ReviewForm/ReviewForm";
+import ModeratorPanel from "./components/Moderator-Panel/ModeratorPanel";
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
             <Route path="/detail/:id" element={<DetailCard  /* movies={movies} */ />} />
-
+            <Route path="/admin" element={<ModeratorPanel/>} />
             <Route element={<ProtectedRoute />}>
               <Route path="/add-movie" element={<FormMovies></FormMovies>} />
               

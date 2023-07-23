@@ -1,0 +1,67 @@
+/* CSS for the form container */
+.container_form {
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-family: Arial, sans-serif;
+  }
+  
+  /* CSS for form labels */
+  label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+  }
+  
+  /* CSS for form input and textarea fields */
+  input[type="text"],
+  textarea {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+  }
+  
+  /* CSS for the submit button */
+  button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  /* CSS for the checkbox label */
+  div label[for="adult"] {
+    margin-bottom: 0;
+  }
+  
+  /* CSS for the checkbox input */
+  #adult {
+    margin-right: 5px;
+  }
+  
+  /* Optional: Style the checkbox appearance */
+  #adult::before {
+    content: "";
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    vertical-align: middle;
+    margin-right: 5px;
+  }
+  
+  /* Optional: Style the checked checkbox */
+  #adult:checked::before {
+    background-color: #007bff;
+    border-color: #007bff;
+  }
+  
