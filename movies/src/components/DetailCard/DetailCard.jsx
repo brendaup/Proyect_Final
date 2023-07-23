@@ -67,7 +67,7 @@ const DetailCard = () => {
           <div>
             <img src={comment.avatar} alt="userImg" />
             {comment.username}
-            <div>Comment:   {comment.comment}</div>
+            <div> {comment.comment}</div>
           </div>
           <div>
             Date: {comment.date}
