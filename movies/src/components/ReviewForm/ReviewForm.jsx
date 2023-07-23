@@ -1,6 +1,7 @@
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthContext/AuthContext";
 import ReviewForm_style from "../ReviewForm/ReviewForm_style.css";
+import axios from "axios"
 
 const ReviewForm = () => {
     const [name, setName] = useState('');
@@ -32,6 +33,31 @@ const ReviewForm = () => {
       setRating('');
       setComment('');
     };
+
+    function editItem() {
+   
+
+
+      const apiEndpoint = 'https://64af02ecc85640541d4e06ee.mockapi.io/users/';
+      const resourceId = '1'; 
+      const updatedObjectData = {
+        "favorites": [{Lala:"lala" , Commoents:"test,test"}]
+      };
+      
+      axios.put(`${apiEndpoint}/${resourceId}`, updatedObjectData)
+        .then(response => {
+          
+          console.log('Object updated successfully:', response.data);
+        })
+        .catch(error => {
+          
+          console.error('Error updating object:', error);
+        });
+        }
+
+
+
+
   
     return (
 
