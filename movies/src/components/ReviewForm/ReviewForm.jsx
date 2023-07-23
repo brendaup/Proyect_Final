@@ -93,3 +93,4 @@ const ReviewForm = ({submitComment, movieId}) => {
   };
   
   export default ReviewForm;
+  

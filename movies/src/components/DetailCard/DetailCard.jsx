@@ -23,17 +23,19 @@ const DetailCard = () => {
     // Se actualiza el estado de los comentarios para mostrar el nuevo comentario
      setComments((prevComments) => [...prevComments, newComment]); 
 
-    // Se envía el nuevo comentario a la API
+    // Se realiza una solicitud PUT a la API para actualizar los comentarios de la película
     axios
-      .post(`https://64af02ecc85640541d4e06ee.mockapi.io/movies/${findMovie.id}/comments`, newComment)
-      .then((response) => {
-        console.log("Comment added:", response.data);
-
-      })
-      .catch((error) => {
-        console.error("Error fetching comments:", error);
-      });
-  }; 
+    .put(`https://64af02ecc85640541d4e06ee.mockapi.io/movies/${findMovie.id}`, {
+      ...findMovie,
+      comments: [...findMovie.comments, newComment],
+    })
+    .then((response) => {
+      console.log("Comment added:", response.data);
+    })
+    .catch((error) => {
+      console.error("Error updating comments:", error);
+    });
+}; 
 
 //Obentemos los detalles de la pelicula con el id y establecemos el estado findMovie
   useEffect(() => {
