@@ -11,8 +11,8 @@ const ReviewForm = () => {
     const {dataMoviesAll , setDataMovies, findMovie, setFindMovie , setComments} = useContext(MovieContext);
     const [formId, setFormId] = useState(findMovie.id);
     const currentDate = new Date();
-    const day = String(currentDate.getDate()).padStart(2, '0'); // To ensure leading zero for single-digit days
-    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Months are zero-based, so we add 1
+    const day = String(currentDate.getDate()).padStart(2, '0'); 
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
     const year = currentDate.getFullYear();
     const shortDateFormat = `${day}/${month}/${year}`;
 
@@ -32,33 +32,33 @@ console.log(formId)
       e.preventDefault();
       setFormId(e.target.id)
   
-      // send form to api users, / not done 
+
       console.log('testings --> ', { name, comment });
       editItem()
   
-      // Reset the form after sub mit
+    
       setName('');
       setComment('');
     };
 
     function editItem() {
    
-      const apiEndpoint = 'https://64af02ecc85640541d4e06ee.mockapi.io/movies/';   // api movies
-      const resourceId = formId;   // cogerId de la movie 
+      const apiEndpoint = 'https://64af02ecc85640541d4e06ee.mockapi.io/movies/';   
+      const resourceId = formId;  
     
       axios.get(`${apiEndpoint}/${resourceId}`)
         .then(response => {
-          const userData = response.data; // consulta datos de la api movies , filtrando por ID 
+          const userData = response.data;
           console.log(userData)
   
-    const updatedFavorites = userData.comments || [];   // si hay data lo importa, si no , lo deja vacío 
+    const updatedFavorites = userData.comments || [];   
                      updatedFavorites.push(   {
                       "username": userName.username,
                       "avatar": userName.avatar,
                       "comment": comment,
-                      "date": shortDateFormat });  // añadir nueva reseña 
+                      "date": shortDateFormat });  
     
-          const updatedObjectData = {...userData, comments: updatedFavorites,}; // juntar Data original con data nuevo.
+          const updatedObjectData = {...userData, comments: updatedFavorites,}; 
     
          
           axios.put(`${apiEndpoint}/${resourceId}`, updatedObjectData)
@@ -96,7 +96,7 @@ console.log(formId)
           />
 
 
-<div> ------------------------------ </div> 
+
         </div>
         
         <div>
