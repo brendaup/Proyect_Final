@@ -26,6 +26,7 @@ function Movies() {
     followMovies,
     setFollowMovies,
     setClickComments,
+    setDataMoviesAll
   } = useContext(MovieContext);
 
   useEffect(() => {
@@ -36,6 +37,7 @@ function Movies() {
         );
         setDataMovies(response.data);
         setOriginalMovies(response.data);
+        setDataMoviesAll(response.data)
       } catch (error) {
         console.log("Error fetching data:", error);
       }

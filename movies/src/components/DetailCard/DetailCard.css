@@ -61,7 +61,7 @@ body {
 }
 
 .container_reviews {
-  border: solid 2px salmon;
+  border: solid 2px #7895B2;
   border-radius: 10px;
   margin-top: 1%;
 }
@@ -71,13 +71,13 @@ body {
 }
 
 .container_reviews-user {
-  border-bottom: 1px solid yellow;
+  border-bottom: 1px solid #F5EFE6;
   display: flex;
   justify-content: space-between;
 }
 
 .container_reviews-user img {
-  width: 35px;
+  width:  70px;
 }
 
 .container_reviews {

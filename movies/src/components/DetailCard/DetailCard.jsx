@@ -2,21 +2,21 @@ import { useParams } from "react-router-dom";
 import { useContext, useEffect, useState } from "react";
 import { MovieContext } from "../../context/MoviesContext/MoviesContext";
 import "./DetailCard.css";
-import { AuthContext } from "../../context/AuthContext/AuthContext";
+import { AuthContext, useAuth } from "../../context/AuthContext/AuthContext";
 import ReviewForm from "../ReviewForm/ReviewForm";
 
 const DetailCard = () => {
   const { id } = useParams();
-  const { dataMovies } = useContext(MovieContext);
-  const {user , setUser} = useContext(AuthContext);
-  const [findMovie, setFindMovie] = useState(null);
-  const [comments, setComments] = useState();
+  const { dataMovies , findMovie, setFindMovie , comments, setComments} = useContext(MovieContext);
+  const {user , setUser } = useContext(AuthContext);
+
   const [clickComments, setClickComments] = useState();
   const [clickReview, setClickReview] = useState();
+  const { userName } = useAuth();
 
 
   useEffect(() => {
-    const movie = dataMovies.find((movie) => movie.id === parseInt(id));
+    const movie = dataMovies.find((movie) => movie.id === id);
     setFindMovie(movie);
   }, [dataMovies, id]);
 
@@ -55,38 +55,37 @@ const DetailCard = () => {
             className="container-comments_length"
           >
             {" "}
-            Comments ({comments.length}){" "}
+            Comments ({comments ? comments.length : "loading"
+            
+            }){" "}
           </div>
           <div>
-            {clickComments ? (
-              <div className="container_reviews">
-                {" "}
-                <div className="container_reviews-user">
-                  {" "}
-                  <div>
-                    {" "}
-                    <img
-                      src="https://i.postimg.cc/4xrwf73K/hacker.png"
-                      alt="userImg"
-                    />{" "}
-                    {findMovie.comments.map((movie) => movie.user)}{" "}
-                  </div>{" "}
-                  <div>
-                    {" "}
-                    Date : {findMovie.comments.map((movie) => movie.date)}{" "}
-                  </div>
-                </div>
-                <div className="container_reviews-comments">
-                  Comment
-                  <div>{comments}</div>
-                </div>
-              </div>
-            ) : (
-              ""
-            )}{" "}
+  {clickComments ? (
+    <div className="container_reviews">
+      {findMovie.comments.map((comment, index) => (
+        <div key={index} className="container_reviews-user">
+          <div>
+            <img src={comment.avatar} alt="userImg" />
+            {comment.username}
+            <div>Comment:   {comment.comment}</div>
           </div>
-          <button id="btn_add-review" type="button" class="btn btn-primary" onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button> 
-          <div> {clickReview ? <div> <ReviewForm /> </div> : ""}  </div></div> 
+          <div>
+            Date: {comment.date}
+          </div>
+
+        
+        </div>
+        
+      ))}
+      
+    </div>
+  ) : (
+    ""
+  )}
+</div>
+          {userName ?  <button id="btn_add-review" type="button" class="btn btn-primary" onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button>  : <h3>You need to log in for leaving reviews , thank you</h3>}
+          
+          <div> {clickReview  ? <div> <ReviewForm /> </div> : " "}  </div></div> 
         </div>
     );
   } else {

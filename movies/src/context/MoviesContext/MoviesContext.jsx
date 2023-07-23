@@ -28,7 +28,9 @@ export function MoviesProvider({ children }) {
   const [originalMovies, setOriginalMovies] = useState([]);
   const [followMovies, setFollowMovies] = useState([]);
   const [comments, setComments] = useState([]);
-
+  const [dataMoviesAll, setDataMoviesAll]= useState([]);
+  const [findMovie, setFindMovie] = useState(null);
+  
   const getMoviesR = async () => {
     try {
       const res = await getMovies();
@@ -84,6 +86,9 @@ export function MoviesProvider({ children }) {
         setFollowMovies,
         comments, setComments,
         removeMovieFromFollowed,
+        dataMoviesAll,
+         setDataMoviesAll,
+         findMovie, setFindMovie
 
       }}
     >
