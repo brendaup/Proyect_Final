@@ -1,0 +1,16 @@
+.div-Stars{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 7px;
+}
+
+input[type="radio"]{
+    display: none;
+}
+
+.star {
+    cursor: pointer;
+    transition: color 200ms;
+}

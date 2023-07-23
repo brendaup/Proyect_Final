@@ -2,6 +2,8 @@ import { useAuth } from "../../context/AuthContext/AuthContext";
 import { useMovies } from "../../context/MoviesContext/MoviesContext";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom"
+import Stars from "../../components/Stars/Stars";
+
 
 const Profile = () => {
   const { user, userName, isAuthenticated, updateUser } = useAuth();
@@ -27,6 +29,7 @@ const Profile = () => {
       (movie) => movie.id == event.target.id
     );
     findUser.favorites.splice(index, 1);
+    //findUser.user_vote = null;
     updateUser(userName.id, findUser);
     navigate("/profile");
     
@@ -64,6 +67,10 @@ const Profile = () => {
                   />{" "}
                   {movie.vote_average}
                 </div>
+                
+                <Stars movie= {movie} />
+                
+                
                 <div>{movie.title} </div>
 
                 <div className="container_list_follow">
