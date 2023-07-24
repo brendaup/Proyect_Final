@@ -249,7 +249,7 @@ function ModeratorPanel() {
             <img src={dataAdded.poster_path} alt="poster img " />{" "}
           </div>
         ) : (
-          " no "
+          ""
         )}
       </div>
     </>
