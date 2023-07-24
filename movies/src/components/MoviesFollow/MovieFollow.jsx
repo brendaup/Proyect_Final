@@ -11,7 +11,6 @@ function MovieFollow() {
 
   /*contexto para llamar la función que elimina peliculas Follow */
   const { removeMovieFromFollowed } = useMovies();
-
   const handleMouseEnter = () => {
     setIsModalOpen(true);
   };
