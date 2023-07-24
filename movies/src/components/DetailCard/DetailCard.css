@@ -78,6 +78,8 @@ body {
 
 .container_reviews-user img {
   width:  70px;
+  border-radius: 20px;
+  border: dotted 3px#7895B2 ;
 }
 
 .container_reviews {
