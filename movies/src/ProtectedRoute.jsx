@@ -10,7 +10,7 @@ const ProtectedRoute = () => {
   console.log(isAuthenticated);
 
   if (!isAuthenticated || (userName && parseInt(userName.role) !== 32)) {
-    return <Navigate to="/login" replace />;
+    return <Navigate to="/profile" replace />;
   }
 
   return <Outlet />;
