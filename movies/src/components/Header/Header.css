@@ -79,3 +79,8 @@ header {
     margin-top: 0.5rem; /* Agregamos un margen superior entre los iconos en pantallas más pequeñas */
   }
 }
+
+
+.admin-login {
+  width: 50px;
+}

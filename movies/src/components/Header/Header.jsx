@@ -7,7 +7,9 @@ import logo from "../../images/logo.png";
 const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
 
+
   console.log("este es mi nombre", userName);
+
 
   return (
 
@@ -39,6 +41,12 @@ const Header = () => {
               <Link to="/profile" className="icon-link" title="Add">
                 <i className="fas fa-plus"></i> 
               </Link>
+
+              <Link to="/admin"> {parseInt(userName.role) === 32 ? <img className="admin-login" src=" https://i.postimg.cc/xdNhVNmy/shield.png" alt="adminIMG" />
+              : '' } </Link>
+
+
+             
               <button
                 className="icon-link"
                 onClick={() => {
