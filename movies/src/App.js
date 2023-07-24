@@ -33,9 +33,7 @@ function App() {
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
             <Route path="/detail/:id" element={<DetailCard   />} />
-            
             <Route element={<ProtectedRoute />}>
-              <Route path="/add-movie" element={<FormMovies></FormMovies>} />
               <Route path="/admin" element={<ModeratorPanel /> } /> 
               <Route path="/profile" element={<Profile></Profile>} />
              
