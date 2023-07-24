@@ -131,7 +131,7 @@ function ModeratorPanel() {
     <>
 
 <div className='check_reviews'>
-  Review searcher 
+  <h4>  Review searcher </h4>
   <input onChange={handleSearch} placeholder='Search by Title of movies'></input>
 
   {Array.isArray(reviewsSearcher) && reviewsSearcher.length > 0 ? (
