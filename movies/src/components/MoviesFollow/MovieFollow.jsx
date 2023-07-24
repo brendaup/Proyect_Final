@@ -6,7 +6,7 @@ import MovieFollow_style from "../../components/MoviesFollow/MovieFollow_style.c
 function MovieFollow() {
   const { followMovies } = useContext(MovieContext);
   const followMoviesLength = followMovies.length;
-  const backgroundImg = followMovies.map((img) => img.poster_path).pop();
+  const backgroundImg = 'https://i.postimg.cc/Y2VRL6X1/movie.png';
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   /*contexto para llamar la función que elimina peliculas Follow */
@@ -32,10 +32,11 @@ function MovieFollow() {
       <div
         className="base"
         style={{
-          backgroundImage: `url(${
+          backgroundImage: `
+          url(${
             backgroundImg
               ? backgroundImg
-              : "https://i.postimg.cc/02DC0j08/popcorn.png"
+              : "https://i.postimg.cc/Y2VRL6X1/movie.png"
           })`,
           backgroundRepeat: "no-repeat",
           backgroundSize: "cover",
