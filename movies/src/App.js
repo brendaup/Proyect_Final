@@ -40,7 +40,7 @@ function App() {
               <Route path="/profile" element={<Profile></Profile>} />
              
             </Route>
-         
+             
           </Routes>
           
           <Footer />

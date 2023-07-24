@@ -22,9 +22,7 @@ function DataMovies() {
   );
   const [showMore, setShowMore] = useState(10);
   const [showLoading, setShowLoading] = useState(true);
-
   const [followBtn, setFollow] = useState(false);
-
   const updatedDataMovies = dataMovies.map((movie) => {
     return {
       ...movie,
@@ -63,13 +61,12 @@ function DataMovies() {
 
     if (dataFilter && isAuthenticated && userName) {
       const findUser = user.find((user) => user.id == userName.id);
-      const isMatch = findUser.favorites.find((movie) => movie.id == id)
-      if(!isMatch){
+      const isMatch = findUser.favorites.find((movie) => movie.id == id);
+      if (!isMatch) {
         findUser.favorites.push(dataFilter);
         const id = findUser.id;
         updateUser(id, findUser);
       }
-   
 
       dataFilter.Favorite = true;
 
@@ -93,38 +90,30 @@ function DataMovies() {
     }
   }, [paramYoutube]);
 
-// limit to 10 items per page
+  // limit to 10 items per page
 
-dataMovies.length = showMore;
-function showListLimit() {
-  const newShowMore = showMore + 10;
-  setShowMore(newShowMore);
-  dataMovies.length = newShowMore;
-  axios.get('https://64af02ecc85640541d4e06ee.mockapi.io/movies')
-  .then(response => {
+  dataMovies.length = showMore;
+  function showListLimit() {
+    const newShowMore = showMore + 10;
+    setShowMore(newShowMore);
+    dataMovies.length = newShowMore;
+    axios
+      .get("https://64af02ecc85640541d4e06ee.mockapi.io/movies")
+      .then((response) => {
+        setDataMovies(response.data);
+      });
+  }
 
-    setDataMovies(response.data); 
-  })
-
-
- 
- }
-
-
- setTimeout(() => {
-  setShowLoading(false);
-
-}, 2000);
-
-
+  setTimeout(() => {
+    setShowLoading(false);
+  }, 2000);
 
   return (
     <>
-    
       <div className="filter-container">
         <GenreFilter />
       </div>
-      
+
       <div className="container_list">
         {dataMovies
           ? dataMovies.map((movie) => (
@@ -144,19 +133,23 @@ function showListLimit() {
                 </div>
                 <div>{movie.title} </div>
 
-                {userName ? <div className="container_list_follow">
-                  <div id={movie.id} onClick={addFollow}>
-                    {" "}
-                    <div
-                      onClick={clickHandlerFollowBtn}
-                      key={movie.id}
-                      id={movie.id}
-                    >
+                {userName ? (
+                  <div className="container_list_follow">
+                    <div id={movie.id} onClick={addFollow}>
                       {" "}
-                      {movie.favorite ? "Followed -  " : " Follow + "}{" "}
+                      <div
+                        onClick={clickHandlerFollowBtn}
+                        key={movie.id}
+                        id={movie.id}
+                      >
+                        {" "}
+                        {movie.favorite ? "Followed -  " : " Follow + "}{" "}
+                      </div>
                     </div>
                   </div>
-                </div> : ""}
+                ) : (
+                  ""
+                )}
                 <div className="container_list-youtube">
                   <img
                     onClick={getParamYoutube}
@@ -169,7 +162,6 @@ function showListLimit() {
             ))
           : ""}
         <div className="container-spinner">
-          
           {showLoading ? (
             <button className="btn btn-primary" type="button" disabled>
               <span
@@ -179,20 +171,28 @@ function showListLimit() {
               ></span>
               Loading...
             </button>
-            
-          ): (
+          ) : (
             ""
           )}
         </div>
-       
       </div>
-      {showLoading ? '' :  <div className="container-show-limit-btn"> 
-        <div></div>
-        
-        <button id="btn_show-limit" type="button" class="btn btn-primary btn-lg btn-block" onClick={showListLimit}>SHOW MORE MOVIES</button>
-            <div></div>
-        </div>}
-      
+      {showLoading ? (
+        ""
+      ) : (
+        <div className="container-show-limit-btn">
+          <div></div>
+
+          <button
+            id="btn_show-limit"
+            type="button"
+            class="btn btn-primary btn-lg btn-block"
+            onClick={showListLimit}
+          >
+            SHOW MORE MOVIES
+          </button>
+          <div></div>
+        </div>
+      )}
     </>
   );
 }
