@@ -85,35 +85,46 @@ function ModeratorPanel() {
 
   function editReviews(commentIndex) {
     const api = 'https://64af02ecc85640541d4e06ee.mockapi.io/movies';
-   
+    let pushForApi = [];
     const movieId = reviewsSearcher.map((item) => item.id);
-    console.log(movieId)
+
+
+    let goApi = reviewsSearcher.map((movie)=> movie.comments);
    
-   
-let arrayParaApi = reviewsSearcher.map((movie) => movie.comments.splice(commentIndex, 1))
+    const indexToDelete = commentIndex; 
+
+    //  index is valid >?
+    if (indexToDelete >= 0 && indexToDelete < goApi[0].length) {
+      goApi[0].splice(indexToDelete, 1); 
+    }
+
  
-let test = `${api}/${movieId}`;
-console.log(test)
+    pushForApi.push(goApi[0])
 
-axios.put(`${api}/${movieId}`, {
-  comments: arrayParaApi,
-})
-  .then(() => {
-    setDataDeleted("Review deleted successfully");
-  })
-  .catch((error) => {
-   
-    console.error("Error deleting review:", error);
-  });
 
+    const updatedObjectData = { comments: goApi[0]}; 
+
+    axios.put(`${apiEndpoint}/${movieId}`, updatedObjectData)
+  
+    .then(response => {
+      console.log(response.data);
+      setReviewsSearcher(response.data)
+      setDataDeleted("Review deleted succesfully!")
+      
+    })
     
-   
- 
+  
 
-  
-  
-  }
-  
+
+
+
+
+
+
+
+
+}
+
 
 
   return (
@@ -166,6 +177,7 @@ axios.put(`${api}/${movieId}`, {
           name="title"
           value={formData.title}
           onChange={handleChange}
+          khkhhk
         />
       </div>
       <div>
