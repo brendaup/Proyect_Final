@@ -156,8 +156,6 @@ axios.put(`${api}/${movieId}`, {
       <div> <h3 className='succesully'>{dataDeleted ? dataDeleted : ''} </h3></div> 
     
 </div>
-
-
     <div className='container_form' >
     <form onSubmit={handleSubmit}>
       <div>
