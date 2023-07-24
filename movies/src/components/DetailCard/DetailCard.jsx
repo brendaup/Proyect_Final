@@ -17,7 +17,9 @@ const DetailCard = () => {
 
   useEffect(() => {
     const movie = dataMovies.find((movie) => movie.id === id);
+   
     setFindMovie(movie);
+   
   }, [dataMovies, id]);
 
   useEffect(() => {

@@ -11,7 +11,12 @@ function ModeratorPanel() {
 
     const { dataMovies, setDataMovies, followMovies, setFollowMovies } = useContext(MovieContext);
   const { userName, isAuthenticated, user, setUser, updateUser } = useAuth();
-   
+   const [dataPushed, setDataPushed] = useState(false);
+   const [dataAdded , setDataAdded] = useState();
+   const apiEndpoint = 'https://64af02ecc85640541d4e06ee.mockapi.io/movies/';
+   const[reviewsSearcher, setReviewsSearcher] = useState([]);
+   const [dataDeleted, setDataDeleted] = useState()
+  
 
  
    
@@ -51,21 +56,108 @@ function ModeratorPanel() {
   const handleSubmit = (event) => {
     event.preventDefault();
   
-    const apiEndpoint = 'https://64af02ecc85640541d4e06ee.mockapi.io/movies/';
+ 
   
     axios.post(apiEndpoint, formData).then((response) => {
         console.log(response);
-        console.log(response.data);
-        // Handle success response here, if needed
+        setDataPushed(true);
+        setDataAdded(response.data)
+    
       })
       .catch((error) => {
         console.error(error);
-        // Handle error response here, if needed
       });
   };
 
  
+  function handleSearch (e) {
+    let search = e.target.value;
+    const searchQuery = search.toLowerCase();
+    const filteredMovies = dataMovies.filter((movie) =>
+      movie.title.toLowerCase().includes(searchQuery)
+    );
+    setReviewsSearcher(filteredMovies);
+   
+
+  }
+
+
+
+  function editReviews(commentIndex) {
+    const api = 'https://64af02ecc85640541d4e06ee.mockapi.io/movies';
+   
+    const movieId = reviewsSearcher.map((item) => item.id);
+    console.log(movieId)
+   
+   
+let arrayParaApi = reviewsSearcher.map((movie) => movie.comments.splice(commentIndex, 1))
+ 
+let test = `${api}/${movieId}`;
+console.log(test)
+
+axios.put(`${api}/${movieId}`, {
+  comments: arrayParaApi,
+})
+  .then(() => {
+    setDataDeleted("Review deleted successfully");
+  })
+  .catch((error) => {
+   
+    console.error("Error deleting review:", error);
+  });
+
+    
+   
+ 
+
+  
+  
+  }
+  
+
+
   return (
+    <>
+
+<div className='check_reviews'>
+  Review searcher 
+  <input onChange={handleSearch} placeholder='Search by Title of movies'></input>
+
+  {Array.isArray(reviewsSearcher) && reviewsSearcher.length > 0 ? (
+    <div>
+      {reviewsSearcher.map((movie) => (
+        <div key={movie.id}>
+          <div>ID: {movie.id}</div>
+          <div>Title: {movie.title}</div>
+          <div className='container-reviews-byuser'>
+            {Array.isArray(movie.comments) && movie.comments.length > 0 ? (
+              movie.comments.map((comment, index) => (
+                <div className='container_showReviews' key={index}>
+                  <p>
+                    Comment by {comment.username}: {comment.comment}
+                    <button
+                      onClick={() => editReviews(index)}
+                      type="button"
+                      className="btn-close"
+                      aria-label="Close"
+                    ></button>
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p>No comments available.</p>
+            )}
+          </div>
+        </div>
+      ))}
+    </div>
+  ) : 
+  ''}
+      <div> <h3 className='succesully'>{dataDeleted ? dataDeleted : ''} </h3></div> 
+    
+</div>
+
+
     <div className='container_form' >
     <form onSubmit={handleSubmit}>
       <div>
@@ -159,7 +251,17 @@ function ModeratorPanel() {
       {/* Add more fields as needed */}
       <button type="submit">Add movie</button>
     </form>
+    
     </div>
+
+    <div className='data_succesfuly'> {dataPushed ? <div>
+        <img src='https://i.postimg.cc/rwy05xLy/successful.png' alt="img ok" />
+     <h2>Movie added succesully! </h2>
+    <p> Title:  {dataAdded.title} </p>
+    <p className='id_movie-pushed'> ID: {dataAdded.id} </p>
+    <p> Release date : {dataAdded.release_date} </p>
+    <img src={dataAdded.poster_path} alt="poster img " />  </div> : " no "}</div>
+    </>
   );
 }
 
