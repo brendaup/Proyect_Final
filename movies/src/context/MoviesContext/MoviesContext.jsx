@@ -56,8 +56,8 @@ export function MoviesProvider({ children }) {
     return res.data;
   }
 
-  const updateMovieR = async (id, task) => {
-    const res = await updateMovie(id, task);
+  const updateMovieR = async (id, movie) => {
+    const res = await updateMovie(id, movie);
     console.log(res);
 
   }
