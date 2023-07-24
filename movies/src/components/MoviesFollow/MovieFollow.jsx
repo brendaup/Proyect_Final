@@ -27,7 +27,7 @@ function MovieFollow() {
   return (
     <div className="container_movieFollow">
       <div> </div>
-
+ 
       <div
         className="base"
         style={{
