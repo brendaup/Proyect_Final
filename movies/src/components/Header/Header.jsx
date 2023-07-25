@@ -8,7 +8,7 @@ const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
 
 
-  console.log("este es mi nombre", userName);
+  //console.log("este es mi nombre", userName);
 
 
   return (

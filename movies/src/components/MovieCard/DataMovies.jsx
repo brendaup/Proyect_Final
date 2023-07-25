@@ -20,17 +20,49 @@ function DataMovies() {
   const [youTubeUrl, setYouTubeUrl] = useState(
     "https://www.youtube.com/results?search_query="
   );
-  const [showMore, setShowMore] = useState(10);
+  const [showMore, setShowMore] = useState(20);
   const [showLoading, setShowLoading] = useState(true);
-  const [followBtn, setFollow] = useState(false);
-  const updatedDataMovies = dataMovies.map((movie) => {
-    return {
-      ...movie,
-      favorite: false,
-      favoriteTxt: "Follow + ",
-      noFavoriteTxt: "Followed - ",
-    };
-  });
+
+ let mappedFavoritesId ;
+ let followBtn = false;
+ 
+ if (userName.favorites && userName.favorites.length !== undefined) {
+  mappedFavoritesId = userName.favorites.map((fav) => fav.id);
+  
+} 
+
+
+
+if (dataMovies && dataMovies.length > 0 &&
+  mappedFavoritesId && mappedFavoritesId.length > 0 &&
+  mappedFavoritesId.includes(dataMovies.map((movie) => parseInt(movie.id)))) {
+followBtn = true;
+} else {
+ 
+
+}
+if (mappedFavoritesId && mappedFavoritesId.length > 0) {
+  let dataMovie = dataMovies.map((movie) => parseInt(movie.id));
+  let favoriteArray = mappedFavoritesId.map((id) => parseInt(id));
+  const hasCommonElement = dataMovie.some((movieId) => favoriteArray.includes(movieId));
+  
+  if (hasCommonElement) {
+    dataMovies.forEach((movie) => {
+      if (favoriteArray.includes(parseInt(movie.id))) {
+        movie.favorite = true;
+      }
+    });
+  }
+}
+
+
+function toNumberArray (value) {
+  return Number([value])
+}
+
+
+
+
 
   function getParamYoutube(event) {
     let dataFilter = dataMovies.filter((param) => param.id == event.target.id);
@@ -47,7 +79,7 @@ function DataMovies() {
     );
 
     if (isAlreadyAdded) {
-      // console.log("Already exists");
+    
     } else {
       const newFollowMovies = followMovies.concat(dataFilter);
       setFollowMovies(newFollowMovies);
@@ -84,7 +116,7 @@ function DataMovies() {
     if (
       newYouTubeUrl === "https://www.youtube.com/results?search_query=undefined"
     ) {
-      console.log("");
+     
     } else {
       window.open(newYouTubeUrl, "_blank");
     }
@@ -107,6 +139,8 @@ function DataMovies() {
   setTimeout(() => {
     setShowLoading(false);
   }, 2000);
+
+
 
   return (
     <>

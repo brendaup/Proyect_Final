@@ -1,6 +1,7 @@
 import { createContext, useState, useContext } from "react";
 import { loginRequest, registerRequest, updateUserR } from "../../api/auth";
 import { useEffect } from "react";
+import axios from "axios";
 
 
 
@@ -19,6 +20,7 @@ export function AuthProvider({ children }) {
   const [errors, setErrors] = useState([]);
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState("");
+  const [refreshUser, setRefreshUser] = useState(false);
   
 
    // Después de 5 segundos limpiamos los errores
@@ -60,11 +62,32 @@ export function AuthProvider({ children }) {
   };
 
     
+
+  
   const updateUser = async (id, user) => {
     const res = await updateUserR (id, user);
-    console.log(res);
+
+      const api = axios.create({
+        baseURL: 'https://64af02ecc85640541d4e06ee.mockapi.io/users/',
+      });
+      async function fetchData() {
+        try {
+          const response = await api.get(`${id}`);
+          setUserName(response.data)
+        } catch (error) {
+          if (error.response && error.response.status === 429) {
+            console.error('Too many requests. Please try again later.');
+          } 
+        }
+      }
+
+
+    
+    
 
   }
+
+  
 
 
 
@@ -81,7 +104,8 @@ export function AuthProvider({ children }) {
         isAuthenticated,
         setUserName,
         userName,
-        updateUser
+        updateUser,
+        refreshUser, setRefreshUser
       }}
     >
       {children}

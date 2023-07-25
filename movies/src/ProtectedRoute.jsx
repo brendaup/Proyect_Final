@@ -7,7 +7,7 @@ import React from 'react';
 
 const ProtectedRoute = () => {
   const { isAuthenticated, userName } = useAuth();
-  console.log(isAuthenticated);
+
 
   if (!isAuthenticated) {
     return <Navigate to="/profile" replace />;

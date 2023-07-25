@@ -1,12 +1,13 @@
 import { useAuth } from "../../context/AuthContext/AuthContext";
 import { useMovies } from "../../context/MoviesContext/MoviesContext";
 import { useEffect, useState } from "react";
-import { useNavigate } from "react-router-dom"
+import { resolvePath, useNavigate } from "react-router-dom"
 import Stars from "../../components/Stars/Stars";
+import axios from "axios";
 
 
 const Profile = () => {
-  const { user, userName, isAuthenticated, updateUser } = useAuth();
+  const { user, userName, setUserName, isAuthenticated, updateUser , refreshUser, setRefreshUser} = useAuth();
   const { dataMovies } = useMovies();
   const [paramYoutube, setParamYoutube] = useState();
   const [youTubeUrl, setYouTubeUrl] = useState(
@@ -33,7 +34,8 @@ const Profile = () => {
     updateUser(userName.id, findUser);
     navigate("/profile");
     
-  }
+    
+    }
 
   useEffect(() => {
     const newYouTubeUrl = `https://www.youtube.com/results?search_query=${paramYoutube}`;
@@ -41,7 +43,7 @@ const Profile = () => {
     if (
       newYouTubeUrl === "https://www.youtube.com/results?search_query=undefined"
     ) {
-      console.log("error getting link for youtube :)");
+      
     } else {
       window.open(newYouTubeUrl, "_blank");
     }

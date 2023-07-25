@@ -26,8 +26,7 @@ const Login = () => {
       (user) =>
         user.email === formData.email && user.password === formData.password
     );
-    console.log(isMatch);
-    console.log(isMatch.username);
+ 
     if (isMatch.length === 1) {
       setUserName(isMatch[0]);
       setIsAuthenticated(true);
