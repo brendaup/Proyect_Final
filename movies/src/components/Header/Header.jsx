@@ -7,6 +7,10 @@ import logo from "../../images/logo_uf.png";
 const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
 
+
+  //console.log("este es mi nombre", userName);
+
+
   return (
     <header>
       <div className="header-container">
