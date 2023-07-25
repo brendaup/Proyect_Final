@@ -3,6 +3,7 @@ import { AuthContext } from "../../context/AuthContext/AuthContext";
 import ReviewForm_style from "../ReviewForm/ReviewForm_style.css";
 import axios from "axios"
 import { MovieContext } from "../../context/MoviesContext/MoviesContext";
+import { Navigate, useNavigate } from "react-router-dom";
 
 const ReviewForm = () => {
     const [name, setName] = useState('');
@@ -15,7 +16,7 @@ const ReviewForm = () => {
     const month = String(currentDate.getMonth() + 1).padStart(2, '0'); 
     const year = currentDate.getFullYear();
     const shortDateFormat = `${day}/${month}/${year}`;
-
+    const navigate = useNavigate();
 console.log(formId)
 
     const handleNameChange = (e) => {
@@ -67,6 +68,7 @@ console.log(formId)
               console.log(response.data);
               setComments(response.data.comments)
               setFindMovie(response.data)
+              navigate(`/detail/${resourceId}`);
               
             })
             .catch(error => {
