@@ -7,7 +7,7 @@ import { FaStar } from "react-icons/fa"
 
 
 const Profile = () => {
-  const { user, userName, isAuthenticated, updateUser } = useAuth();
+  const { user, userName, updateUser } = useAuth();
   const { dataMovies } = useMovies();
   const [paramYoutube, setParamYoutube] = useState();
   const [youTubeUrl, setYouTubeUrl] = useState(
@@ -22,15 +22,12 @@ const Profile = () => {
   }
 
 
-  
-
  function handleOnClick(event) {
     const findUser = user.find((user) => user.id == userName.id);
     const index = userName.favorites.findIndex(
       (movie) => movie.id == event.target.id
     );
     findUser.favorites.splice(index, 1);
-    //findUser.user_vote = null;
     updateUser(userName.id, findUser);
     navigate("/profile");
     

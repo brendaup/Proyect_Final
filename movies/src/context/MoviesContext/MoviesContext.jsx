@@ -30,6 +30,8 @@ export function MoviesProvider({ children }) {
   const [comments, setComments] = useState([]);
   const [dataMoviesAll, setDataMoviesAll]= useState([]);
   const [findMovie, setFindMovie] = useState(null);
+
+
   
   const getMoviesR = async () => {
     try {
@@ -42,13 +44,10 @@ export function MoviesProvider({ children }) {
 
   const createMovieR = async (movie) => {
     const res = await createMovie(movie);
-    console.log("res", res);
-
   };
 
   const deleteMovieR = async (id) => {
     const res = await deleteMovie(id);
-    console.log(res);
   };
 
   const getMovieR = async (id) => {
@@ -61,6 +60,8 @@ export function MoviesProvider({ children }) {
     console.log(res);
 
   }
+
+
 //Función para eliminar película del array de películas seguidas
   const removeMovieFromFollowed = (movieId) => {
     setFollowMovies((followMovies) =>
@@ -87,8 +88,8 @@ export function MoviesProvider({ children }) {
         comments, setComments,
         removeMovieFromFollowed,
         dataMoviesAll,
-         setDataMoviesAll,
-         findMovie, setFindMovie
+        setDataMoviesAll,
+        findMovie, setFindMovie
 
       }}
     >

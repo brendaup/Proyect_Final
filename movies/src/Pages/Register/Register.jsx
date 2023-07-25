@@ -29,9 +29,9 @@ const Register = () => {
   }, []);
 
   const onSubmit = async (formData) => {
-    console.log(formData);
+  
     const isMatch = user.filter((user) => user.email === formData.email);
-    console.log(isMatch);
+   
     if (isMatch.length === 1) {
       alert(
         "El email ya se encuentra registrado. Si ya tienes una cuenta, puedes hacer login"
