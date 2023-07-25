@@ -18,18 +18,19 @@
   position: relative;
   display: inline-block;
   padding: 8px 16px;
-  background-color:  #F5EFE6  ;
+  background-color:  #7895B2 ;
   color: #7895B2;
   font-size: 14px;
   border-radius: 20px;
   margin-left: 70%;
   width: 50px;
   height: 40px;
+
 }
 
 .noti_count {
   font-family: "Courier New", Courier, monospace;
-  color: #7895B2;
+  color: white;
   font-weight: 700;
   position: relative !important;
   font-weight: bold;
