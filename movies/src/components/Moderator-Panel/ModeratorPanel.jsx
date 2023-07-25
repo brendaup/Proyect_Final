@@ -19,7 +19,6 @@ function ModeratorPanel() {
     backdrop_path: "",
     genre: "",
     original_language: "",
-
     overview: "",
     popularity: 2459.93,
     poster_path: "",
@@ -73,7 +72,6 @@ function ModeratorPanel() {
 
     const indexToDelete = commentIndex;
 
-    //  index is valid >?
     if (indexToDelete >= 0 && indexToDelete < goApi[0].length) {
       goApi[0].splice(indexToDelete, 1);
     }
@@ -229,7 +227,6 @@ function ModeratorPanel() {
               onChange={handleChange}
             />
           </div>
-          {/* Add more fields as needed */}
           <button type="submit">Add movie</button>
         </form>
       </div>

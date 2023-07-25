@@ -1,11 +1,10 @@
 import { useAuth } from "../../context/AuthContext/AuthContext";
 import { useMovies } from "../../context/MoviesContext/MoviesContext";
 import { useEffect, useState } from "react";
-import { resolvePath, useNavigate } from "react-router-dom"
+import { resolvePath, useNavigate } from "react-router-dom";
 import Stars from "../../components/Stars/Stars";
 import axios from "axios";
-import { FaStar } from "react-icons/fa"
-
+import { FaStar } from "react-icons/fa";
 
 const Profile = () => {
   const { user, userName, updateUser } = useAuth();
@@ -22,8 +21,7 @@ const Profile = () => {
     setParamYoutube(dataFilter.map((data) => data.title));
   }
 
-
- function handleOnClick(event) {
+  function handleOnClick(event) {
     const findUser = user.find((user) => user.id == userName.id);
     const index = userName.favorites.findIndex(
       (movie) => movie.id == event.target.id
@@ -31,9 +29,7 @@ const Profile = () => {
     findUser.favorites.splice(index, 1);
     updateUser(userName.id, findUser);
     navigate("/profile");
-    
-    
-    }
+  }
 
   useEffect(() => {
     const newYouTubeUrl = `https://www.youtube.com/results?search_query=${paramYoutube}`;
@@ -41,14 +37,10 @@ const Profile = () => {
     if (
       newYouTubeUrl === "https://www.youtube.com/results?search_query=undefined"
     ) {
-      
     } else {
       window.open(newYouTubeUrl, "_blank");
     }
   }, [paramYoutube]);
-
-
-
 
   return (
     <>
@@ -61,17 +53,12 @@ const Profile = () => {
                 </div>
                 <div className="container_list-rate">
                   {" "}
-                  <FaStar 
-                     className = "star"
-                     color = {"#ffc107"}
-                     size={20}/>
-                  {" "}
+                  <FaStar className="star" color={"#ffc107"} size={20} />{" "}
                   {movie.vote_average}
                 </div>
-                
-                <Stars movie= {movie} />
-                
-                
+
+                <Stars movie={movie} />
+
                 <div>{movie.title} </div>
 
                 <div className="container_list_follow">

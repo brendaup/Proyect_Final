@@ -7,19 +7,18 @@ import ReviewForm from "../ReviewForm/ReviewForm";
 
 const DetailCard = () => {
   const { id } = useParams();
-  const { dataMovies , findMovie, setFindMovie , comments, setComments} = useContext(MovieContext);
-  const {user , setUser } = useContext(AuthContext);
+  const { dataMovies, findMovie, setFindMovie, comments, setComments } =
+    useContext(MovieContext);
+  const { user, setUser } = useContext(AuthContext);
 
   const [clickComments, setClickComments] = useState();
   const [clickReview, setClickReview] = useState();
   const { userName } = useAuth();
 
-
   useEffect(() => {
     const movie = dataMovies.find((movie) => movie.id === id);
-   
+
     setFindMovie(movie);
-   
   }, [dataMovies, id]);
 
   useEffect(() => {
@@ -30,9 +29,7 @@ const DetailCard = () => {
     }
   }, [findMovie]);
 
-  function commentsHandlerClick(clickVariable , setterClick) {
-
-
+  function commentsHandlerClick(clickVariable, setterClick) {
     setterClick(!clickVariable);
   }
 
@@ -53,42 +50,58 @@ const DetailCard = () => {
           </p>
 
           <div
-             onClick={() => commentsHandlerClick(clickComments, setClickComments)}
+            onClick={() =>
+              commentsHandlerClick(clickComments, setClickComments)
+            }
             className="container-comments_length"
           >
             {" "}
-            Comments ({comments ? comments.length : "loading"
-            
-            }){" "}
+            Comments ({comments ? comments.length : "loading"}){" "}
           </div>
           <div>
-  {clickComments ? (
-    <div className="container_reviews">
-      {findMovie.comments.map((comment, index) => (
-        <div key={index} className="container_reviews-user">
-          <div>
-            <img src={comment.avatar} alt="userImg" />
-            {comment.username}
-            <div> {comment.comment}</div>
+            {clickComments ? (
+              <div className="container_reviews">
+                {findMovie.comments.map((comment, index) => (
+                  <div key={index} className="container_reviews-user">
+                    <div>
+                      <img src={comment.avatar} alt="userImg" />
+                      {comment.username}
+                      <div> {comment.comment}</div>
+                    </div>
+                    <div>Date: {comment.date}</div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              ""
+            )}
           </div>
-          <div>
-            Date: {comment.date}
-          </div>
+          {userName ? (
+            <button
+              id="btn_add-review"
+              type="button"
+              class="btn btn-primary"
+              onClick={() => commentsHandlerClick(clickReview, setClickReview)}
+            >
+              Add review
+            </button>
+          ) : (
+            <h3>You need to log in for leaving reviews , thank you</h3>
+          )}
 
-        
+          <div>
+            {" "}
+            {clickReview ? (
+              <div>
+                {" "}
+                <ReviewForm />{" "}
+              </div>
+            ) : (
+              " "
+            )}{" "}
+          </div>
         </div>
-        
-      ))}
-      
-    </div>
-  ) : (
-    ""
-  )}
-</div>
-          {userName ?  <button id="btn_add-review" type="button" class="btn btn-primary" onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button>  : <h3>You need to log in for leaving reviews , thank you</h3>}
-          
-          <div> {clickReview  ? <div> <ReviewForm /> </div> : " "}  </div></div> 
-        </div>
+      </div>
     );
   } else {
     return (

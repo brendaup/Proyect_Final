@@ -1,6 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
-import { FaStar } from "react-icons/fa"
+import { FaStar } from "react-icons/fa";
 import DataMovies_style from "../../components/MovieCard/DataMovies_style.css";
 import MovieFollow from "../MoviesFollow/MovieFollow";
 import { useAuth } from "../../context/AuthContext/AuthContext";
@@ -24,53 +24,47 @@ function DataMovies() {
   const [showMore, setShowMore] = useState(20);
   const [showLoading, setShowLoading] = useState(true);
 
- let mappedFavoritesId ;
- let followBtn = false;
- 
- if (userName.favorites && userName.favorites.length !== undefined) {
-  mappedFavoritesId = userName.favorites.map((fav) => fav.id);
-  
-} 
+  let mappedFavoritesId;
+  let followBtn = false;
 
-
-
-if (dataMovies && dataMovies.length > 0 &&
-  mappedFavoritesId && mappedFavoritesId.length > 0 &&
-  mappedFavoritesId.includes(dataMovies.map((movie) => parseInt(movie.id)))) {
-followBtn = true;
-} else {
- 
-
-}
-if (mappedFavoritesId && mappedFavoritesId.length > 0) {
-  let dataMovie = dataMovies.map((movie) => parseInt(movie.id));
-  let favoriteArray = mappedFavoritesId.map((id) => parseInt(id));
-  const hasCommonElement = dataMovie.some((movieId) => favoriteArray.includes(movieId));
-  
-  if (hasCommonElement) {
-    dataMovies.forEach((movie) => {
-      if (favoriteArray.includes(parseInt(movie.id))) {
-        movie.favorite = true;
-      }
-    });
+  if (userName.favorites && userName.favorites.length !== undefined) {
+    mappedFavoritesId = userName.favorites.map((fav) => fav.id);
   }
-}
 
+  if (
+    dataMovies &&
+    dataMovies.length > 0 &&
+    mappedFavoritesId &&
+    mappedFavoritesId.length > 0 &&
+    mappedFavoritesId.includes(dataMovies.map((movie) => parseInt(movie.id)))
+  ) {
+    followBtn = true;
+  } else {
+  }
+  if (mappedFavoritesId && mappedFavoritesId.length > 0) {
+    let dataMovie = dataMovies.map((movie) => parseInt(movie.id));
+    let favoriteArray = mappedFavoritesId.map((id) => parseInt(id));
+    const hasCommonElement = dataMovie.some((movieId) =>
+      favoriteArray.includes(movieId)
+    );
 
-function toNumberArray (value) {
-  return Number([value])
-}
+    if (hasCommonElement) {
+      dataMovies.forEach((movie) => {
+        if (favoriteArray.includes(parseInt(movie.id))) {
+          movie.favorite = true;
+        }
+      });
+    }
+  }
 
-
-
-
+  function toNumberArray(value) {
+    return Number([value]);
+  }
 
   function getParamYoutube(event) {
     let dataFilter = dataMovies.filter((param) => param.id == event.target.id);
     setParamYoutube(dataFilter.map((data) => data.title));
   }
-
-  //Movie follow module
 
   function addFollow(event) {
     let dataFilter = dataMovies.filter((param) => param.id == event.target.id);
@@ -80,7 +74,6 @@ function toNumberArray (value) {
     );
 
     if (isAlreadyAdded) {
-    
     } else {
       const newFollowMovies = followMovies.concat(dataFilter);
       setFollowMovies(newFollowMovies);
@@ -117,13 +110,11 @@ function toNumberArray (value) {
     if (
       newYouTubeUrl === "https://www.youtube.com/results?search_query=undefined"
     ) {
-     
     } else {
       window.open(newYouTubeUrl, "_blank");
     }
   }, [paramYoutube]);
 
-  // limit to 10 items per page
 
   dataMovies.length = showMore;
   function showListLimit() {
@@ -140,8 +131,6 @@ function toNumberArray (value) {
   setTimeout(() => {
     setShowLoading(false);
   }, 2000);
-
-
 
   return (
     <>
@@ -160,12 +149,7 @@ function toNumberArray (value) {
                 </div>
                 <div className="container_list-rate">
                   {" "}
-                  <FaStar 
-                     className = "star"
-                     color = {"#ffc107"}
-                     size={20}/>
-             
-                {" "}
+                  <FaStar className="star" color={"#ffc107"} size={20} />{" "}
                   {movie.vote_average}
                 </div>
                 <div>{movie.title} </div>

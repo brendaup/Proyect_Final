@@ -34,7 +34,7 @@ const Register = () => {
    
     if (isMatch.length === 1) {
       alert(
-        "El email ya se encuentra registrado. Si ya tienes una cuenta, puedes hacer login"
+        "The email is already registered. If you already have an account, you can login"
       );
     } else {
       await signup(formData);

@@ -7,34 +7,23 @@ import logo from "../../images/logo_uf.png";
 const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
 
-
-  //console.log("este es mi nombre", userName);
-
-
   return (
     <header>
       <div className="header-container">
-        
         <div className="logo">
           <img src={logo} alt="logo" />
         </div>
-        
-        
-        {/* Bloque del logo */}
+
         <div className="container-home">
           <Link to="/" title="Home">
             <i className="fa-solid fa-house"></i>
           </Link>
         </div>
 
-        
-
-        {/* Bloque del input */}
         <div className="input-container">
           <Nav />
         </div>
 
-        {/* Bloque de los iconos */}
         <div className="container-icons">
           {isAuthenticated ? (
             <>

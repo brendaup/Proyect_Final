@@ -3,8 +3,6 @@ import { loginRequest, registerRequest, updateUserR } from "../../api/auth";
 import { useEffect } from "react";
 import axios from "axios";
 
-
-
 export const AuthContext = createContext();
 
 export const useAuth = () => {
@@ -21,10 +19,9 @@ export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState("");
   const [refreshUser, setRefreshUser] = useState(false);
-  
 
-   // Después de 5 segundos limpiamos los errores
-   useEffect(() => {
+  // Después de 5 segundos limpiamos los errores
+  useEffect(() => {
     if (errors.length > 0) {
       const timer = setTimeout(() => {
         setErrors([]);
@@ -56,34 +53,23 @@ export function AuthProvider({ children }) {
     setIsAuthenticated(false);
   };
 
-    
-
-  
   const updateUser = async (id, user) => {
-    const res = await updateUserR (id, user);
+    const res = await updateUserR(id, user);
 
-      const api = axios.create({
-        baseURL: 'https://64af02ecc85640541d4e06ee.mockapi.io/users/',
-      });
-      async function fetchData() {
-        try {
-          const response = await api.get(`${id}`);
-          setUserName(response.data)
-        } catch (error) {
-          if (error.response && error.response.status === 429) {
-            console.error('Too many requests. Please try again later.');
-          } 
+    const api = axios.create({
+      baseURL: "https://64af02ecc85640541d4e06ee.mockapi.io/users/",
+    });
+    async function fetchData() {
+      try {
+        const response = await api.get(`${id}`);
+        setUserName(response.data);
+      } catch (error) {
+        if (error.response && error.response.status === 429) {
+          console.error("Too many requests. Please try again later.");
         }
       }
-
-
-    
-    
-
-  }
-
-  
-
+    }
+  };
 
   return (
     <AuthContext.Provider
@@ -98,7 +84,8 @@ export function AuthProvider({ children }) {
         setUserName,
         userName,
         updateUser,
-        refreshUser, setRefreshUser
+        refreshUser,
+        setRefreshUser,
       }}
     >
       {children}

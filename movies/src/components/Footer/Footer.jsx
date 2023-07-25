@@ -17,7 +17,7 @@ const Footer = () => {
           <i class="fa-brands fa-facebook"></i>
         </a>
       </div>
-      <p>© 2023 UpgradeFlix - Todos los derechos reservados</p>
+      <p>© 2023 UpgradeFlix - All rights reserved</p>
     </div>
   );
 };

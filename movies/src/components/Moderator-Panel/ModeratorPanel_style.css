@@ -1,65 +1,62 @@
 .container_form {
-    max-width: 500px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    font-family: Arial, sans-serif;
-  }
-  
-  label {
-    display: block;
-    margin-bottom: 5px;
-    font-weight: bold;
-  }
-  
-  input[type="text"],
-  textarea {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 15px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-  }
-  
-  button[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    border-radius: 4px;
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-family: Arial, sans-serif;
+}
 
-  div label[for="adult"] {
-    margin-bottom: 0;
-  }
-  
- 
-  #adult {
-    margin-right: 5px;
-  }
- 
-  #adult::before {
-    content: "";
-    display: inline-block;
-    width: 16px;
-    height: 16px;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    vertical-align: middle;
-    margin-right: 5px;
-  }
-  
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
 
-  #adult:checked::before {
-    background-color: #007bff;
-    border-color: #007bff;
-  }
-  
+input[type="text"],
+textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
 
-  .succesully {
-    color: greenyellow;
-  }
+button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+div label[for="adult"] {
+  margin-bottom: 0;
+}
+
+#adult {
+  margin-right: 5px;
+}
+
+#adult::before {
+  content: "";
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+#adult:checked::before {
+  background-color: #007bff;
+  border-color: #007bff;
+}
+
+.succesully {
+  color: greenyellow;
+}

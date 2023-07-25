@@ -39,7 +39,7 @@ const Login = () => {
       navigate("/");
     } else {
       navigate("/login");
-      alert("Asegúrate de escribir correctamente tu email y usuario.");
+      alert("Write your email and username correctly");
     }
   };
 

@@ -18,7 +18,7 @@
   position: relative;
   display: inline-block;
   padding: 8px 16px;
-  background-color:  #7895B2 ;
+  background-color:  #eedb9f ;
   color: #7895B2;
   font-size: 14px;
   border-radius: 20px;
@@ -30,7 +30,7 @@
 
 .noti_count {
   font-family: "Courier New", Courier, monospace;
-  color: white;
+  color: black;
   font-weight: 700;
   position: relative !important;
   font-weight: bold;
@@ -62,6 +62,17 @@
   font-size: 1vh;
   color: black;
 }
+
+.container_modal p {
+  color: black;
+}
+
+li {
+  display: flex;
+  flex-direction: row;
+}
+
+
 
 @media (max-width: 768px) {
   .base {

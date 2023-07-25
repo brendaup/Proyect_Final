@@ -1,13 +1,7 @@
 import { createContext, useContext, useState } from "react";
-import { createMovie, getMovies, getMovie, deleteMovie, updateMovie } from "../../api/movies"
-
-//Creamos un contexto para las peliculas que va a venir de la funcion
-//createContext de React
+import { createMovie, getMovies, getMovie, deleteMovie, updateMovie} from "../../api/movies";
 
 export const MovieContext = createContext();
-
-
-//Exportamos un hook llamado useMovies que va a ser igual al uso del contexto
 
 export const useMovies = () => {
   const context = useContext(MovieContext);
@@ -19,20 +13,15 @@ export const useMovies = () => {
   return context;
 };
 
-//Exportamos la funcion MoviesProvider que será el contenedor para todos los
-//componentes que pueden acceder
-
 export function MoviesProvider({ children }) {
   const [movies, setMovies] = useState([]);
   const [dataMovies, setDataMovies] = useState([]);
   const [originalMovies, setOriginalMovies] = useState([]);
   const [followMovies, setFollowMovies] = useState([]);
   const [comments, setComments] = useState([]);
-  const [dataMoviesAll, setDataMoviesAll]= useState([]);
+  const [dataMoviesAll, setDataMoviesAll] = useState([]);
   const [findMovie, setFindMovie] = useState(null);
 
-
-  
   const getMoviesR = async () => {
     try {
       const res = await getMovies();
@@ -53,22 +42,18 @@ export function MoviesProvider({ children }) {
   const getMovieR = async (id) => {
     const res = await getMovie(id);
     return res.data;
-  }
+  };
 
   const updateMovieR = async (id, movie) => {
     const res = await updateMovie(id, movie);
     console.log(res);
+  };
 
-  }
-
-
-//Función para eliminar película del array de películas seguidas
   const removeMovieFromFollowed = (movieId) => {
     setFollowMovies((followMovies) =>
       followMovies.filter((movie) => movie.id !== movieId)
     );
   };
-
 
   return (
     <MovieContext.Provider
@@ -85,18 +70,16 @@ export function MoviesProvider({ children }) {
         setOriginalMovies,
         followMovies,
         setFollowMovies,
-        comments, setComments,
+        comments,
+        setComments,
         removeMovieFromFollowed,
         dataMoviesAll,
         setDataMoviesAll,
-        findMovie, setFindMovie
-
+        findMovie,
+        setFindMovie,
       }}
     >
       {children}
     </MovieContext.Provider>
   );
 }
-
-
-

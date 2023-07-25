@@ -1,4 +1,3 @@
-/* Estilo general de la tarjeta */
 body {
   background-color: #222831 ;
   margin: 0;
@@ -10,19 +9,16 @@ body {
   color: white;
   border-radius: 8px;
   padding: 20px;
-  /*     max-width: 400px; */
   width: 700px;
   margin: 0 auto;
 }
 
-/* Estilo para el contenedor del título, imagen y sinopsis */
 .movie-content {
   background-color: #7895B2;
   padding: 20px;
   margin-bottom: 20px;
 }
 
-/* Estilo para el título de la película */
 .movie-title {
   font-size: 1.8rem;
   font-weight: bold;
@@ -30,30 +26,25 @@ body {
   text-align: center;
 }
 
-/* Estilo para la imagen de la película */
 .movie-poster {
-  /*     max-width: 100%; */
   width: 300px;
   height: auto;
   border-radius: 4px;
   margin-bottom: 20px;
-  margin: 0 auto; /*centra la imagen*/
+  margin: 0 auto; 
 }
 
-/* Estilo para la descripción de la película */
 .movie-description {
   font-size: 1.2rem;
   margin-bottom: 15px;
 }
 
-/* Estilo para el contenedor de información adicional (por ejemplo, votos) */
 .additional-info {
   display: flex;
   align-items: center;
   font-size: 1.2rem;
 }
 
-/* Estilo para el icono en la información adicional */
 .additional-info img {
   width: 20px;
   height: 20px;

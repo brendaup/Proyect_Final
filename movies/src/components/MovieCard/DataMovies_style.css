@@ -1,9 +1,7 @@
-
-
 .filter-container {
   display: flex;
   justify-content: center;
-  margin-top: 20px ; 
+  margin-top: 20px;
 }
 
 .container_list {
@@ -14,13 +12,10 @@
   margin-top: 3%;
   margin-bottom: auto;
   box-sizing: border-box;
-  
 }
 
 .container_list img {
   width: 340px;
-
-
 }
 
 .container_list div {
@@ -30,14 +25,13 @@
 
 .container_list_box-background {
   text-align: center;
-  
 }
 .container_list_box-background div {
-  background-color:  #AEBDCA;
+  background-color: #aebdca;
 }
 
 body {
-  background-color:#7895B2 !important;
+  background-color: #7895b2 !important;
 }
 
 .container_list-rate {
@@ -56,8 +50,8 @@ body {
   width: 10px;
   height: 2%;
   border-radius: 20px;
-  background-color: #F5EFE6;
-  color:black;
+  background-color: #f5efe6;
+  color: black;
   cursor: pointer;
   position: relative;
 }
@@ -74,31 +68,29 @@ body {
 }
 
 .container-spinner {
- display: flex;
-justify-content: space-between;
-margin-left: 34%;
-margin-right: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 34%;
+  margin-right: auto;
 }
 
 .container-spinner button {
   width: 500px;
-  background-color: #FF9494;
+  background-color: #ff9494;
 }
 
 .btn {
-  background-color: #F5EFE6 !important;
+  background-color: #f5efe6 !important;
   border: none;
-  color:black;
+  color: black;
 }
-
 
 #btn_show-limit {
   background-color: F5EFE6 !important;
- width: 50%;  
+  width: 50%;
   height: auto;
   margin-bottom: 2%;
 }
-
 
 .container-show-limit-btn {
   display: flex !important;

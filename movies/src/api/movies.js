@@ -1,11 +1,7 @@
-
 import axios from "./axios";
-
 
 import { useContext, useEffect } from "react";
 import { MovieContext } from "../context/MoviesContext/MoviesContext";
-
-
 
 export const getMovies = () => axios.get("/movies");
 
@@ -17,7 +13,6 @@ export const updateMovie = (id, movie) => axios.put(`/movies/${id}`, movie);
 
 export const deleteMovie = (id) => axios.delete(`/movies/${id}`);
 
-
 function Movies() {
   const {
     dataMovies,
@@ -27,7 +22,7 @@ function Movies() {
     followMovies,
     setFollowMovies,
     setClickComments,
-    setDataMoviesAll
+    setDataMoviesAll,
   } = useContext(MovieContext);
 
   useEffect(() => {
@@ -38,7 +33,7 @@ function Movies() {
         );
         setDataMovies(response.data);
         setOriginalMovies(response.data);
-        setDataMoviesAll(response.data)
+        setDataMoviesAll(response.data);
       } catch (error) {
         console.log("Error fetching data:", error);
       }
