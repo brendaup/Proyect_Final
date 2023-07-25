@@ -5,8 +5,7 @@ import ModeratorPanel_style from "../../components/Moderator-Panel/ModeratorPane
 import axios from "axios";
 
 function ModeratorPanel() {
-  const { dataMovies, setDataMovies, followMovies, setFollowMovies } =
-    useContext(MovieContext);
+  const { dataMovies, dataMoviesAll } = useContext(MovieContext);
   const { userName, isAuthenticated, user, setUser, updateUser } = useAuth();
   const [dataPushed, setDataPushed] = useState(false);
   const [dataAdded, setDataAdded] = useState();
@@ -35,8 +34,6 @@ function ModeratorPanel() {
     const { name, value, type, checked } = event.target;
     const newValue = type === "checkbox" ? checked : value;
     setFormData({ ...formData, [name]: newValue });
-
-    console.log(formData);
   };
 
   const handleSubmit = (event) => {
@@ -45,7 +42,6 @@ function ModeratorPanel() {
     axios
       .post(apiEndpoint, formData)
       .then((response) => {
-        console.log(response);
         setDataPushed(true);
         setDataAdded(response.data);
       })
@@ -92,6 +88,31 @@ function ModeratorPanel() {
 
   return (
     <>
+      <div>
+        <div>
+          <p>
+            Last registered user:{" "}
+            <span className="data_show">
+              {" "}
+              {user ? user[user.length - 1].username : "loading"}
+            </span>
+          </p>
+        </div>
+        <div>
+          <p>
+            Last movie added to data base:{" "}
+            <span className="data_show">
+              {" "}
+              {dataMoviesAll
+                ? dataMoviesAll[dataMovies.length - 1].title +
+                  " / released at " +
+                  dataMovies[dataMovies.length - 1].release_date
+                : "loading"}
+            </span>{" "}
+          </p>{" "}
+        </div>
+      </div>
+
       <div className="check_reviews">
         <h4> Review searcher </h4>
         <input
@@ -156,7 +177,7 @@ function ModeratorPanel() {
               name="overview"
               value={formData.overview}
               onChange={handleChange}
-            />  
+            />
           </div>
 
           <div>
@@ -227,7 +248,14 @@ function ModeratorPanel() {
               onChange={handleChange}
             />
           </div>
-          <button type="submit">Add movie</button>
+
+          <button
+            type="submit"
+            id="add_movie-btn"
+            class="btn btn-outline-success"
+          >
+            Add movie
+          </button>
         </form>
       </div>
 
