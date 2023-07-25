@@ -1,10 +1,9 @@
-.search-filter {
+/* .search-filter {
     display: flex;
     align-items: center;
     justify-content: center; 
     width: 130vh;
     background-color: #f9f9f9;
-    border: 1px solid #ddd;
     border-radius: 5px;
     margin-bottom: 10px;
   }
@@ -41,4 +40,70 @@
     border: 1px solid #e4daae;
     box-shadow: 0 0 0 3px rgba(240, 233, 143, 0.5);
   }
+   */
+
+   .search-filter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%; /* Ajustar el ancho del filtro al 100% del contenedor */
+    max-width: 400px; /* Establecer un ancho máximo para el filtro */
+    border-radius: 5px;
+    margin-bottom: 10px;
+    transition: max-width 0.3s; /* Agregar una transición para suavizar el cambio de tamaño */
+  }
   
+  .search-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    color: #999;
+    width: 100%; 
+  }
+  
+  .search-icon i {
+    margin-right: 15px;
+    margin-bottom: 13px;
+    color: rgb(250, 249, 249);
+  }
+  
+  .search-filter input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 14px;
+    width: 100%; /* Ajustar el ancho del input al 100% del contenedor */
+    border-radius: 30px;
+    transition: width 0.3s; /* Agregar una transición para suavizar el cambio de tamaño */
+  }
+  
+  .search-filter input::placeholder {
+    color: #999;
+  }
+  
+  .search-filter input:focus {
+    border: 1px solid #e4daae;
+    box-shadow: 0 0 0 3px rgba(240, 233, 143, 0.5);
+  }
+  
+  /* Ajustes para pantallas más pequeñas */
+  @media (max-width: 768px) {
+    .search-filter {
+      max-width: 300px; /* Reducir el ancho máximo del filtro en pantallas más pequeñas */
+    }
+  
+    .search-filter input {
+      width: 80%; /* Reducir el ancho del input en pantallas más pequeñas */
+    }
+  }
+  @media (min-width: 1025px) {
+    .search-filter {
+      max-width: 600px; /* Puedes ajustar el ancho máximo según tus necesidades */
+    }
+  
+    .search-filter input {
+      width: 100%; /* El input ocupará todo el ancho del contenedor */
+    }
+  }

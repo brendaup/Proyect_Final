@@ -5,11 +5,13 @@
 }
 
 .base {
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
   border: 1px solid transparent;
   border-radius: 30%;
   position: relative;
+  margin-left: 40px;
+  top: -10px;
 }
 
 .indicator {
@@ -56,4 +58,10 @@
 .container_modal button {
   font-size: 1vh;
   color: black;
+}
+
+@media (max-width: 768px) {
+  .base {
+    display: none;
+  }
 }
