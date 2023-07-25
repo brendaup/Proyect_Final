@@ -32,7 +32,7 @@ const Login = () => {
       (user) =>
         user.email === formData.email && user.password === formData.password
     );
- 
+    
     if (isMatch.length === 1) {
       setUserName(isMatch[0]);
       setIsAuthenticated(true);

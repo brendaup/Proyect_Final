@@ -37,10 +37,7 @@ export function AuthProvider({ children }) {
     try {
       const res = await registerRequest(user);
       setUser(res.data);
-    
-      console.log(user);
     } catch (error) {
-      console.log(error.response.data);
       setErrors(error.response.data.message);
     }
   };
@@ -49,9 +46,7 @@ export function AuthProvider({ children }) {
     try {
       const res = await loginRequest();
       setUser(res.data);
-      
     } catch (error) {
-      console.log(error.response.data);
       setErrors(error.response.data.message);
     }
   };
@@ -88,8 +83,6 @@ export function AuthProvider({ children }) {
   }
 
   
-
-
 
 
   return (

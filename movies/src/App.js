@@ -29,6 +29,7 @@ function App() {
          <Header />
     
           <Routes>
+          
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
@@ -36,7 +37,6 @@ function App() {
             <Route element={<ProtectedRoute />}>
               <Route path="/admin" element={<ModeratorPanel /> } /> 
               <Route path="/profile" element={<Profile></Profile>} />
-             
             </Route>
              
           </Routes>
