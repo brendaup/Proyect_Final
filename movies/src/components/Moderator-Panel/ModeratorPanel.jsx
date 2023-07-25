@@ -1,7 +1,7 @@
 import { MovieContext } from "../../context/MoviesContext/MoviesContext";
 import React, { useContext, useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext/AuthContext";
-import ModeratorPanel_style from "../../components/Moderator-Panel/ModeratorPanel_style.css";
+import "./ModeratorPanel_style.css"
 import axios from "axios";
 
 function ModeratorPanel() {
@@ -35,8 +35,6 @@ function ModeratorPanel() {
     const { name, value, type, checked } = event.target;
     const newValue = type === "checkbox" ? checked : value;
     setFormData({ ...formData, [name]: newValue });
-
-    console.log(formData);
   };
 
   const handleSubmit = (event) => {
@@ -92,6 +90,7 @@ function ModeratorPanel() {
 
   return (
     <>
+    
       <div className="check_reviews">
         <h4> Review searcher </h4>
         <input
@@ -136,6 +135,7 @@ function ModeratorPanel() {
           <h3 className="succesully">{dataDeleted ? dataDeleted : ""} </h3>
         </div>
       </div>
+      <div className="container-admin">
       <div className="container_form">
         <form onSubmit={handleSubmit}>
           <div>
@@ -234,21 +234,28 @@ function ModeratorPanel() {
       <div className="data_succesfuly">
         {" "}
         {dataPushed ? (
-          <div>
-            <img
-              src="https://i.postimg.cc/rwy05xLy/successful.png"
-              alt="img ok"
-            />
-            <h2>Movie added succesully! </h2>
-            <p> Title: {dataAdded.title} </p>
-            <p className="id_movie-pushed"> ID: {dataAdded.id} </p>
-            <p> Release date : {dataAdded.release_date} </p>
-            <img src={dataAdded.poster_path} alt="poster img " />{" "}
+          <div className="container-dataAdded">
+            <div className="container-icon-succesull">
+              <img
+                  src="https://i.postimg.cc/rwy05xLy/successful.png"
+                  alt="img ok"
+                          />
+              <h2>Movie added succesully! </h2>
+            </div>
+            <div className="container-movie-pushed">
+              <p> Title: {dataAdded.title} </p>
+              <p className="id_movie-pushed"> ID: {dataAdded.id} </p>
+              <p> Release date : {dataAdded.release_date} </p>
+              <img src={dataAdded.poster_path} alt="poster img " className="poster"/>{" "}
+            </div>
+
           </div>
         ) : (
           ""
         )}
       </div>
+      </div>
+      
     </>
   );
 }

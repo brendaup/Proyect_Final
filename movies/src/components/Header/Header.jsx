@@ -29,9 +29,7 @@ const Header = () => {
             <>
               <div className="div-welcome">Welcome {userName.username}!</div>
 
-              <Link to="/profile" className="icon-link" title="Profile">
-                <i class="fa-solid fa-user"></i>
-              </Link>
+              
 
               <Link to="/admin">
                 {" "}
@@ -44,6 +42,10 @@ const Header = () => {
                 ) : (
                   ""
                 )}{" "}
+              </Link>
+
+              <Link to="/profile" className="icon-link" title="Profile">
+                <i class="fa-solid fa-user"></i>
               </Link>
 
               <button

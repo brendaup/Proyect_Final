@@ -67,8 +67,11 @@ header {
 }
 
 .admin-login {
-  width: 50px;
+  width: 35px;
+  filter: hue-rotate(200deg);
+  margin-right: 20px;
 }
+
 
 @media (max-width: 768px) {
   .header-container {
