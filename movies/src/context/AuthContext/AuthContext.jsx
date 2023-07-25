@@ -51,6 +51,7 @@ export function AuthProvider({ children }) {
   const logout = () => {
     setUser(null);
     setIsAuthenticated(false);
+    setUserName('');
   };
 
   const updateUser = async (id, user) => {
