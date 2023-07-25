@@ -1,5 +1,6 @@
 import React from "react";
 import "bootstrap/dist/css/bootstrap.css";
+import { FaStar } from "react-icons/fa"
 import DataMovies_style from "../../components/MovieCard/DataMovies_style.css";
 import MovieFollow from "../MoviesFollow/MovieFollow";
 import { useAuth } from "../../context/AuthContext/AuthContext";
@@ -159,10 +160,12 @@ function toNumberArray (value) {
                 </div>
                 <div className="container_list-rate">
                   {" "}
-                  <img
-                    src="https://i.postimg.cc/qRCzZQyV/star.png"
-                    alt="star"
-                  />{" "}
+                  <FaStar 
+                     className = "star"
+                     color = {"#ffc107"}
+                     size={20}/>
+             
+                {" "}
                   {movie.vote_average}
                 </div>
                 <div>{movie.title} </div>

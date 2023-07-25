@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { resolvePath, useNavigate } from "react-router-dom"
 import Stars from "../../components/Stars/Stars";
 import axios from "axios";
+import { FaStar } from "react-icons/fa"
 
 
 const Profile = () => {
@@ -63,10 +64,11 @@ const Profile = () => {
                 </div>
                 <div className="container_list-rate">
                   {" "}
-                  <img
-                    src="https://i.postimg.cc/qRCzZQyV/star.png"
-                    alt="star"
-                  />{" "}
+                  <FaStar 
+                     className = "star"
+                     color = {"#ffc107"}
+                     size={20}/>
+                  {" "}
                   {movie.vote_average}
                 </div>
                 
