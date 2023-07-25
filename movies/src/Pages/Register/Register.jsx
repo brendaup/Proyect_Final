@@ -14,7 +14,13 @@ const Register = () => {
     resolver: zodResolver(registerSchema),
   });
 
-  const { signup, errors: registerErrors, signin, user, setIsAuthenticated } = useAuth();
+  const {
+    signup,
+    errors: registerErrors,
+    signin,
+    user,
+    setIsAuthenticated,
+  } = useAuth();
 
   const navigate = useNavigate();
 
@@ -46,20 +52,20 @@ const Register = () => {
           </p>
         ))}
 
-        <h1 className="text-3xl font-bold text-white py-4">Registro</h1>
+        <h1 className="text-3xl font-bold text-white py-4">Register</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           <label
             htmlFor="username"
             className="text-m block my-3 text-slate-300"
           >
-            Nombre de usuario:
+            Username:
           </label>
           <input
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md"
             type="text"
             id="username"
-            placeholder="Escribe tu nombre"
+            placeholder="Write your username"
             {...register("username")}
             autoFocus
           />
@@ -73,7 +79,7 @@ const Register = () => {
           <input
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md"
             id="email"
-            placeholder="nombre@dominio.final"
+            placeholder="youremail@domain.tld"
             {...register("email")}
           />
           {errors.email?.message && (
@@ -81,13 +87,13 @@ const Register = () => {
           )}
 
           <label htmlFor="email" className="text-m block my-3 text-slate-300">
-            Contraseña:
+            Password:
           </label>
           <input
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md"
             type="password"
             id="password"
-            placeholder="contraseña"
+            placeholder="Write your password"
             {...register("password")}
           />
           {errors.password?.message && (
@@ -96,16 +102,18 @@ const Register = () => {
 
           <button
             type="onSubmit"
-            className="bg-indigo-500 px-4 py-1 rounded-md my-5 disabled:bg-indigo-300"
+            className="bg-blue-300 px-4 py-1 rounded-md my-5 disabled:bg-indigo-300"
           >
-            Registrarme!
+            Register !
           </button>
         </form>
-        <p>
-          ¿Ya tienes una cuenta de usuario?
-          <Link to="/login" className="bg-indigo-500 px-4 py-2 rounded-md mx-3">
-            Login
-          </Link>
+        <p className="flex gap-x-2 justify-between text-white">
+          Already have an account?
+          <button className="bg-blue-300 px-4 py-1 rounded-md my-5 disabled:bg-indigo-300">
+            <Link className="no-underline text-slate-800" to="/login">
+              Login
+            </Link>
+          </button>
         </p>
       </div>
     </div>

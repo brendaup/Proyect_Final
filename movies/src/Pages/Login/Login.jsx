@@ -13,7 +13,13 @@ const Login = () => {
   } = useForm({
     resolver: zodResolver(loginSchema),
   });
-  const { signin, user, errors: loginErrors, setIsAuthenticated, setUserName } = useAuth();
+  const {
+    signin,
+    user,
+    errors: loginErrors,
+    setIsAuthenticated,
+    setUserName,
+  } = useAuth();
 
   useEffect(() => {
     signin();
@@ -60,7 +66,7 @@ const Login = () => {
             label="Write your email"
             type="email"
             id="email"
-            placeholder="nombre@dominio.final"
+            placeholder="youremail@domain.tld"
             {...register("email")}
           />
           {errors.email?.message && (
@@ -68,13 +74,13 @@ const Login = () => {
           )}
 
           <label htmlFor="email" className="text-m block my-3 text-slate-300">
-            Contraseña:
+            Password:
           </label>
           <input
             className="w-full bg-zinc-700 text-white px-4 py-2 rounded-md"
             type="password"
             id="password"
-            placeholder="Escribe tu contraseña"
+            placeholder="Write your password"
             {...register("password")}
           />
           {errors.password?.message && (
@@ -83,22 +89,23 @@ const Login = () => {
 
           <button
             type="onSubmit"
-            className="bg-indigo-500 px-4 py-1 rounded-md my-5 disabled:bg-indigo-300"
+            className="bg-blue-300 px-4 py-1 rounded-md my-5 disabled:bg-indigo-300"
           >
             Login
           </button>
         </form>
 
-        <p>
-          Todavía no tienes una cuenta?
-          <Link to="/register" className="bg-indigo-500 px-4 py-2 rounded-md mx-3">
-            Registrarse
-          </Link>
+        <p className="flex gap-x-2 justify-between text-white">
+          Don't have an account?
+          <button className="bg-blue-300 px-4 py-1 rounded-md my-5 disabled:bg-indigo-300">
+            <Link className="no-underline text-slate-800" to="/register">
+              Register
+            </Link>
+          </button>
         </p>
       </div>
     </div>
   );
-
 };
 
 export default Login;
