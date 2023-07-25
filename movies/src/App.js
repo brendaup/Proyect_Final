@@ -12,9 +12,7 @@ import  Header  from "./components/Header/Header"
 import  Footer  from "./components/Footer/Footer"
 import  ProtectedRoute  from "./ProtectedRoute";
 import  Profile  from "./Pages/Profile/Profile"
-import  FormMovies  from "./Pages/FormMovies/FormMovies"
 import DetailCard from "./components/DetailCard/DetailCard";
-import ReviewForm from "./components/ReviewForm/ReviewForm";
 import ModeratorPanel from "./components/Moderator-Panel/ModeratorPanel";
 
 
@@ -26,10 +24,10 @@ function App() {
   
       <MoviesProvider>
         <BrowserRouter>
+         
          <Header />
     
           <Routes>
-          
             <Route path="/" element={<DataMovies />} />
             <Route path="/login" element={<Login></Login>} />
             <Route path="/register" element={<Register></Register>} />
@@ -38,11 +36,12 @@ function App() {
               <Route path="/admin" element={<ModeratorPanel /> } /> 
               <Route path="/profile" element={<Profile></Profile>} />
             </Route>
-             
           </Routes>
           
           <Footer />
+
         </BrowserRouter>
+         
          <Movies /> 
         
       </MoviesProvider>

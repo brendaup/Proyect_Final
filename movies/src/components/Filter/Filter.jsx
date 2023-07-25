@@ -1,7 +1,5 @@
 import React from 'react';
 import SearchFilter from './SearchFilter';
-import GenreFilter from './GenreFilter';
-import "./Filter.css"
 
 const Filter = () => {
   return (
