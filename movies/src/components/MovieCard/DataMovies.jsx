@@ -53,10 +53,21 @@ function DataMovies() {
       dataMovies.forEach((movie) => {
         if (favoriteArray.includes(parseInt(movie.id))) {
           movie.favorite = true;
+        } else {
+          movie.favorite = false;
         }
       });
+    } else {
+      dataMovies.forEach((movie) => {
+        movie.favorite = false;
+      });
     }
+
+    
   }
+
+
+  
 
   function toNumberArray(value) {
     return Number([value]);
