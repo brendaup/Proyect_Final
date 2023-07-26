@@ -12,6 +12,7 @@ import {
 import { Link } from "react-router-dom";
 import GenreFilter from "../Filter/GenreFilter";
 import axios from "axios";
+import Visitors from "./Visitors/Visitors";
 
 function DataMovies() {
   const { dataMovies, setDataMovies, followMovies, setFollowMovies } =
@@ -133,6 +134,7 @@ function DataMovies() {
 
   return (
     <>
+    
       <div className="filter-container">
         <GenreFilter />
       </div>
@@ -213,6 +215,7 @@ function DataMovies() {
           <div></div>
         </div>
       )}
+      <Visitors />
     </>
   );
 }

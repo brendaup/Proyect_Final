@@ -21,6 +21,8 @@ export function MoviesProvider({ children }) {
   const [comments, setComments] = useState([]);
   const [dataMoviesAll, setDataMoviesAll] = useState([]);
   const [findMovie, setFindMovie] = useState(null);
+  const [ userVisitorCounter, setUserVisitorCounter] = useState(0);
+  const [ userVisitorCounterUniq, setUserVisitorUniq] = useState(0);
 
   const getMoviesR = async () => {
     try {
@@ -77,6 +79,9 @@ export function MoviesProvider({ children }) {
         setDataMoviesAll,
         findMovie,
         setFindMovie,
+        userVisitorCounter, setUserVisitorCounter,
+        userVisitorCounterUniq, setUserVisitorUniq
+        
       }}
     >
       {children}
