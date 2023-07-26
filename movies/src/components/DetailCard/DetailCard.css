@@ -83,6 +83,21 @@ body {
   cursor: pointer;
 }
 
+.not-found {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+  margin-top: 12%;
+  margin-bottom: 15%;
+}
+
+
+.not-found img {
+  max-width: 100%;
+  max-height: 100%;
+}
+
 #btn_add-review {
   margin-top: 1%;
 }
