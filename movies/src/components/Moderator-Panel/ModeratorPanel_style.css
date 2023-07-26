@@ -41,16 +41,6 @@ div label[for="adult"] {
   margin-right: 5px;
 }
 
-#adult::before {
-  content: "";
-  display: inline-block;
-  width: 16px;
-  height: 16px;
-  border: 2px solid #ccc;
-  border-radius: 4px;
-  vertical-align: middle;
-  margin-right: 5px;
-}
 
 #adult:checked::before {
   background-color: #007bff;
@@ -59,4 +49,17 @@ div label[for="adult"] {
 
 .succesully {
   color: greenyellow;
+}
+
+
+#add_movie-btn {
+  width: 100%;
+  background-color: #eedb9f !important;
+  color: black !important;
+}
+
+.data_show{
+  font-weight: bold;
+  font: 20px;
+  color: #eedb9f;
 }

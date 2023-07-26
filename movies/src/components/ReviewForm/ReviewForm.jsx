@@ -9,7 +9,8 @@ const ReviewForm = () => {
   const [name, setName] = useState("");
   const [comment, setComment] = useState("");
   const { userName } = useContext(AuthContext);
-  const { dataMoviesAll, setDataMovies, findMovie, setFindMovie, setComments } = useContext(MovieContext);
+  const { dataMoviesAll, setDataMovies, findMovie, setFindMovie, setComments } =
+    useContext(MovieContext);
   const [formId, setFormId] = useState(findMovie.id);
   const currentDate = new Date();
   const day = String(currentDate.getDate()).padStart(2, "0");
