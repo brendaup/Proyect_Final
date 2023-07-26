@@ -38,8 +38,9 @@ const Register = () => {
       );
     } else {
       await signup(formData);
-      setIsAuthenticated(true);
-      navigate("/");
+      setIsAuthenticated(false);
+      navigate("/login");
+      
     }
   };
 
