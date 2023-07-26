@@ -31,7 +31,7 @@ const ReviewForm = () => {
     e.preventDefault();
     setFormId(e.target.id);
 
-    console.log("testings --> ", { name, comment });
+ 
     editItem();
 
     setName("");
@@ -44,7 +44,7 @@ const ReviewForm = () => {
 
     axios.get(`${apiEndpoint}/${resourceId}`).then((response) => {
       const userData = response.data;
-      console.log(userData);
+     
 
       const updatedFavorites = userData.comments || [];
       updatedFavorites.push({
@@ -60,7 +60,7 @@ const ReviewForm = () => {
         .put(`${apiEndpoint}/${resourceId}`, updatedObjectData)
 
         .then((response) => {
-          console.log(response.data);
+        
           setComments(response.data.comments);
           setFindMovie(response.data);
           navigate(`/detail/${resourceId}`);
