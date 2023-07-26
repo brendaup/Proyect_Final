@@ -1,6 +1,7 @@
 .social-container {
   display: flex;
   justify-content: center;
+
 }
 
 .social-container a {
@@ -18,3 +19,7 @@ p {
   color: white;
   margin-top: 10px;
 }
+ 
+
+
+

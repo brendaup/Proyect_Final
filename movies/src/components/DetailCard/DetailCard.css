@@ -11,6 +11,7 @@ body {
   padding: 20px;
   width: 700px;
   margin: 0 auto;
+  transition: width 0.5s ease;
 }
 
 .movie-content {
@@ -84,4 +85,27 @@ body {
 
 #btn_add-review {
   margin-top: 1%;
+}
+
+@media (max-width: 768px) {
+  .movie-detail-card {
+    width: 90%; 
+    padding: 10px; 
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 576px) {
+  .movie-detail-card {
+    width: 90%;
+    padding: 10px; 
+    font-size: 14px; 
+  }
+}
+
+@media (max-width: 420px) {
+  .movie-detail-card {
+    width: 100%; 
+    font-size: 12px; 
+  }
 }

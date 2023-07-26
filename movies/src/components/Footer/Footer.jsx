@@ -2,7 +2,7 @@ import "./Footer.css"
 
 const Footer = () => {
   return (
-    <div>
+    <div className="footer">
       <div className="social-container">
         <a href="https://www.instagram.com/">
           <i class="fa-brands fa-instagram"></i>

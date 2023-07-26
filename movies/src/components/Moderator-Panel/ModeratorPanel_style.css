@@ -1,10 +1,163 @@
+.container-admin {
+  display: flex;
+  justify-content: center;
+  padding-left: 10%;
+  padding-top: 2%;
+}
+
 .container_form {
+  flex: 1;
   max-width: 500px;
-  margin: 0 auto;
+  margin: 0;
   padding: 20px;
   border: 1px solid #ccc;
   border-radius: 8px;
   font-family: Arial, sans-serif;
+  display: inline-block;
+  vertical-align: top;
+  margin-right: 20px;
+}
+
+.container_form label {
+  font-weight: bold;
+}
+
+.data_succesfuly {
+  display: flex;
+  align-items: center;
+  flex: 1;
+}
+
+.container-icon-succesull {
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  margin-right: 20px;
+}
+
+.container-icon-succesull img {
+  margin-right: 30px;
+}
+
+
+.container-movie-pushed {
+  flex: 1;
+}
+
+.container-movie-pushed img {
+  max-width: 200px;
+  display: block;
+  margin: 0 auto;
+}
+
+.check_reviews {
+  margin-bottom: 30px;
+  text-align: center;
+}
+
+.check_reviews input {
+  border-radius: 8px;
+  width: 300px;
+}
+
+.check_reviews h4 {
+  margin-top: 40px;
+  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+}
+
+.container_form input[type="text"],
+.container_form textarea,
+.container_form input[type="date"],
+.container_form input[type="number"],
+.container_form button[type="submit"] {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+.container_form button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.container_form div label[for="adult"] {
+  margin-bottom: 0;
+}
+
+.container_form #adult {
+  margin-right: 5px;
+}
+
+.data_succesfuly {
+  display: inline-block;
+  vertical-align: top;
+  width: 400px;
+  height: auto;
+}
+
+.data_succesfuly img {
+  max-width: 70px;
+  border-radius: 8px;
+}
+
+.data_succesfuly h2 {
+  font-size: 40px;
+  color: #eedb9f;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.data_succesfuly h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 2px;
+  background-color: #eedb9f;
+  margin: 0 auto;
+  margin-top: 5px;
+}
+
+.data_succesfuly p {
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+
+.data_succesfuly .id_movie-pushed {
+  font-weight: normal;
+}
+
+.container-movie-pushed img {
+  width: 100%;
+  max-width: 300px;
+  display: block;
+  margin: 0 auto;
+}
+
+.container_showReviews {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+.container_showReviews button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 5px 10px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-left: 10px;
 }
 
 label {
@@ -62,4 +215,28 @@ div label[for="adult"] {
   font-weight: bold;
   font: 20px;
   color: #eedb9f;
+}
+
+@media (max-width: 576px) {
+  .container_form,
+  .data_succesfuly {
+    display: block;
+    width: 100%;
+  }
+  .container_form{
+    display: none;
+  }
+
+  .data_succesfuly img {
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  
+  .container_form{
+    display: none;
+  }
+
+ 
 }
