@@ -87,6 +87,7 @@ export function AuthProvider({ children }) {
         updateUser,
         refreshUser,
         setRefreshUser,
+       
       }}
     >
       {children}

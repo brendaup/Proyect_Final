@@ -3,9 +3,10 @@ import React, { useContext, useEffect, useState } from "react";
 import { useAuth } from "../../context/AuthContext/AuthContext";
 import ModeratorPanel_style from "../../components/Moderator-Panel/ModeratorPanel_style.css";
 import axios from "axios";
+import Visitors from "../MovieCard/Visitors/Visitors";
 
 function ModeratorPanel() {
-  const { dataMovies, dataMoviesAll } = useContext(MovieContext);
+  const { dataMovies, dataMoviesAll , userVisitorCounter, userVisitorCounterUniq } = useContext(MovieContext);
   const { userName, isAuthenticated, user, setUser, updateUser } = useAuth();
   const [dataPushed, setDataPushed] = useState(false);
   const [dataAdded, setDataAdded] = useState();
@@ -88,6 +89,7 @@ function ModeratorPanel() {
 
   return (
     <>
+
       <div>
         <div>
           <p>
@@ -109,6 +111,9 @@ function ModeratorPanel() {
                   dataMovies[dataMovies.length - 1].release_date
                 : "loading"}
             </span>{" "}
+            <div> <div>  Visitors: ( <span className="data_show">{userVisitorCounter} </span> )  </div> 
+            Unique visitors :  (<span className="data_show">{userVisitorCounterUniq}</span>) </div>
+           
           </p>{" "}
         </div>
       </div>
