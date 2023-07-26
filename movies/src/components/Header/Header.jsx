@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../../context/AuthContext/AuthContext";
 import "./Header.css";
 import Nav from "../Nav/Nav";
@@ -6,6 +6,7 @@ import logo from "../../images/logo_uf.png";
 
 const Header = () => {
   const { isAuthenticated, logout, userName } = useAuth();
+  const navigate = useNavigate();
 
   return (
     <header>
@@ -52,6 +53,7 @@ const Header = () => {
                 className="icon-link"
                 onClick={() => {
                   logout();
+                  navigate("/");
                 }}
               >
                 <i className="fas fa-sign-out-alt" title="Log out"></i>

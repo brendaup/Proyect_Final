@@ -20,7 +20,7 @@ export function AuthProvider({ children }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [userName, setUserName] = useState("");
   const [refreshUser, setRefreshUser] = useState(false);
-  const navigate = useNavigate();
+  
   // Después de 5 segundos limpiamos los errores
   useEffect(() => {
     if (errors.length > 0) {
@@ -53,7 +53,7 @@ export function AuthProvider({ children }) {
     setUser(null);
     setIsAuthenticated(false);
     setUserName("");
-    navigate("/");
+    
   };
 
   const updateUser = async (id, user) => {
