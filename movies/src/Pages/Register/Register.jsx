@@ -39,7 +39,7 @@ const Register = () => {
     } else {
       await signup(formData);
       setIsAuthenticated(true);
-      navigate("/home");
+      navigate("/");
     }
   };
 
