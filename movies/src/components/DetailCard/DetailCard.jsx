@@ -85,7 +85,7 @@ const DetailCard = () => {
     ""
   )}
 </div>
-          {userName ?  <button id="btn_add-review" type="button" class="btn btn-primary" onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button>  : <h3>You need to log in for leaving reviews , thank you</h3>}
+          {userName ?  <button id="btn_add-review" type="button" className="btn btn-custom"/* class="btn btn-primary" */ onClick={() => commentsHandlerClick(clickReview, setClickReview)} >Add review</button>  : <h3>You need to log in for leaving reviews , thank you</h3>}
           
           <div> {clickReview  ? <div> <ReviewForm /> </div> : " "}  </div></div> 
         </div>

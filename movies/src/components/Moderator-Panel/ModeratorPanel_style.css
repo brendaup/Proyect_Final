@@ -66,6 +66,7 @@ div label[for="adult"] {
   display: flex;
   justify-content: center;
   padding-left: 10%;
+  padding-top: 5%;
 }
 
 .container_form {
@@ -170,7 +171,7 @@ div label[for="adult"] {
 }
 
 .container_form #adult:checked {
-  background-color: #007bff;
+  background-color: #007bff !important;
   border-color: #007bff;
 }
 

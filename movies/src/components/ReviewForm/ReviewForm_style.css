@@ -1,4 +1,4 @@
-.container_review {
+/* .container_review {
     display: block;
     flex-wrap: wrap;
     color: black;
@@ -6,4 +6,66 @@
 
 #test {
     color: salmon
-}
+} */
+
+.container_review {
+    max-width: 400px;
+    margin: 0;
+    padding: 20px;
+    margin-top: 20px;
+    border: 1px solid #2567c9;
+    border-radius: 8px;
+    background-color: #f0f4fa;
+    font-family: Arial, sans-serif;
+    color: #333;
+  }
+  
+  .container_review h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #2567c9;
+  }
+  
+  .container_review label {
+    display: block;
+    font-size: 16px;
+    margin-bottom: 8px;
+    color: #2567c9;
+  }
+  
+  .container_review input[type="text"],
+  .container_review textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #2567c9;
+    border-radius: 4px;
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .container_review textarea {
+    resize: vertical;
+  }
+  
+  .container_review button {
+    background-color: #2567c9;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+  
+  .container_review button:hover {
+    background-color: #1f4f90;
+  }
+  
+  #test {
+    color: #2567c9;
+  }
+  
+  .container_review p {
+    margin: 0;
+  }
+  
